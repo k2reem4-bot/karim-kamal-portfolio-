@@ -52,18 +52,16 @@
     .stat span{font-size:13px;color:var(--muted)}
     .skills{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
     .tag{padding:8px 14px;border:1px solid var(--line);border-radius:8px;color:#c8d0db;font-size:13px;background:rgba(255,255,255,0.02)}
-    
-    /* Projects Styling Clean & Working */
     .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-    .project{min-height:300px;position:relative;overflow:hidden;padding:32px;display:flex;flex-direction:column;justify-content:space-between;transition:.3s border-color}
-    .project:hover{border-color:rgba(149,227,61,0.5)}
-    .project-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}
+    .project{min-height:320px;position:relative;overflow:hidden;padding:32px;display:flex;flex-direction:column;justify-content:space-between;transition:.3s border-color}
+    .project:hover{border-color:rgba(149,227,61,0.4)}
+    .project:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(149,227,61,.12),transparent 50%,rgba(255,255,255,.02));opacity:.7}
+    .project > *{position:relative}
+    .project-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
     .project-number{color:#596473;font:700 14px "Space Grotesk"}
-    .project h3{font:700 26px "Space Grotesk";letter-spacing:-.03em;margin-bottom:8px}
-    .project p{color:var(--muted);font-size:14px;margin-bottom:20px}
-    .project-link{color:var(--accent);font-weight:600;font-size:14px;display:inline-flex;align-items:center;gap:4px;width:fit-content}
-    .project-link:hover{text-decoration:underline}
-
+    .project h3{font:700 28px "Space Grotesk";letter-spacing:-.03em;margin-bottom:8px}
+    .project p{color:var(--muted);font-size:14px;max-width:480px;margin-bottom:20px}
+    .project-link{color:var(--accent);font-weight:600;font-size:14px;display:inline-flex;align-items:center;gap:4px}
     .services{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
     .service h3{font:600 20px "Space Grotesk";margin:18px 0 9px}
     .service p{color:var(--muted);font-size:14px}
@@ -73,12 +71,12 @@
     .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
     .contact-list{display:grid;gap:12px;margin-top:20px}
     .contact-item{padding:15px 17px;border:1px solid var(--line);border-radius:11px;background:rgba(255,255,255,.02);font-size:14px;transition:.2s}
-    .contact-item:hover{border-color:var(--accent)}
+    .contact-item:hover{border-color:var(--accent);background:rgba(149,227,61,0.03)}
     .contact-item span{display:block;color:#687486;font-size:11px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px}
     
     .form-group{margin-bottom:15px}
     .form-group input, .form-group textarea{width:100%;padding:14px;background:#07090d;border:1px solid var(--line);border-radius:10px;color:white;font-family:inherit;font-size:14px;outline:none;transition:.2s}
-    .form-group input:focus{border-color:var(--accent)}
+    .form-group input:focus, .form-group textarea:focus{border-color:var(--accent)}
     
     footer{border-top:1px solid var(--line);padding:25px 0;color:#667181;font-size:12px;display:flex;justify-content:space-between}
 
@@ -95,7 +93,6 @@
   </style>
 </head>
 <body>
-
 <nav>
   <div class="wrap nav-inner">
     <a class="logo" href="#home">KARIM<span>.</span></a>
@@ -112,9 +109,9 @@
 <main id="home">
   <section class="hero">
     <div class="wrap">
-      <div class="eyebrow"><span class="dot"></span> Available for Shopify projects</div>
+      <div class="eyebrow"><span class="dot"></span> Available for new Shopify projects</div>
       <h1>Shopify stores built to <span class="green">convert.</span></h1>
-      <p>I’m Karim Kamal, a Shopify Specialist focused on building clean, fast, and conversion-focused ecommerce experiences that help brands grow.</p>
+      <p>I’m Karim Kamal, a Shopify Specialist focused on building clean, fast, and high-converting ecommerce experiences that scale your business.</p>
       <div class="actions">
         <a class="btn primary" href="#contact">Let's work together ↗</a>
         <a class="btn" href="#projects">View projects</a>
@@ -126,80 +123,81 @@
     <div class="wrap">
       <div class="section-head">
         <div><div class="kicker">01 — About</div><h2>Shopify, but<br>business-minded.</h2></div>
-        <p>I combine Shopify Liquid development, UX design, and CRO principles to create experiences that look sharp and perform.</p>
+        <p>I combine Shopify Liquid development, UX design, and Conversion Rate Optimization (CRO) to build stores that look great and sell more.</p>
       </div>
       <div class="about-grid">
         <div class="card">
-          <p class="about-copy">My focus is not just making a store look good. Every section, interaction, and mobile detail should make the customer journey clearer and the path to purchase easier.</p>
+          <p class="about-copy">My focus isn't just making a store look visual. Every section, layout, and mobile interaction is strategically built to clarify the customer journey and maximize purchase intent.</p>
           <div class="skills">
             <span class="tag">Shopify 2.0</span>
             <span class="tag">Liquid</span>
-            <span class="tag">HTML/CSS</span>
+            <span class="tag">HTML5/CSS3</span>
             <span class="tag">JavaScript</span>
-            <span class="tag">CRO</span>
-            <span class="tag">UX/UI</span>
-            <span class="tag">Responsive Design</span>
+            <span class="tag">CRO & UX</span>
+            <span class="tag">Theme Customization</span>
+            <span class="tag">App Integration</span>
           </div>
         </div>
         <div class="stats">
-          <div class="stat"><strong>01</strong><span>Shopify Specialist</span></div>
-          <div class="stat"><strong>∞</strong><span>Optimization mindset</span></div>
-          <div class="stat"><strong>24/7</strong><span>Mobile-first thinking</span></div>
-          <div class="stat"><strong>100%</strong><span>Focus on the user</span></div>
+          <div class="stat"><strong>Shopify</strong><span>Specialist</span></div>
+          <div class="stat"><strong>CRO</strong><span>Optimization Focus</span></div>
+          <div class="stat"><strong>100%</strong><span>Mobile First</span></div>
+          <div class="stat"><strong>Fast</strong><span>Loading Speed</span></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- قسم المشاريع المعدل مع الروابط والمواقع -->
   <section id="projects">
     <div class="wrap">
       <div class="section-head">
-        <div><div class="kicker">02 — Selected Work</div><h2>Projects that<br>mean business.</h2></div>
-        <p>A selection of live Shopify stores and custom e-commerce experiences I've developed.</p>
+        <div><div class="kicker">02 — Selected Work</div><h2>Projects that<br>drive results.</h2></div>
+        <p>A preview of custom Shopify storefronts, theme setups, and landing pages I've crafted.</p>
       </div>
       <div class="projects">
-
         <article class="card project">
           <div>
-            <div class="project-header"><span class="project-number">01</span></div>
-            <h3>Fashion Store</h3>
-            <p>Modern Shopify storefront built with custom sections, fast loading speed, and mobile-first UX layout.</p>
+            <div class="project-header">
+              <span class="project-number">01</span>
+            </div>
+            <h3>Fashion & Apparel Store</h3>
+            <p>Modern Shopify 2.0 storefront featuring custom Liquid sections, interactive size guides, and a streamlined checkout flow.</p>
           </div>
-          <!-- غير # بالرابط الحقيقي لموقعك -->
-          <a href="https://your-store-link1.com" target="_blank" rel="noopener" class="project-link">Visit Live Store ↗</a>
+          <a href="#" class="project-link">View Project ↗</a>
         </article>
 
         <article class="card project">
           <div>
-            <div class="project-header"><span class="project-number">02</span></div>
-            <h3>Beauty Brand</h3>
-            <p>Premium ecommerce experience designed around product discovery, customer trust, and optimized checkout.</p>
+            <div class="project-header">
+              <span class="project-number">02</span>
+            </div>
+            <h3>Beauty & Cosmetics Brand</h3>
+            <p>Premium ecommerce experience designed for high mobile conversion, subscription integration, and social proof showcase.</p>
           </div>
-          <!-- غير # بالرابط الحقيقي لموقعك -->
-          <a href="https://your-store-link2.com" target="_blank" rel="noopener" class="project-link">Visit Live Store ↗</a>
+          <a href="#" class="project-link">View Project ↗</a>
         </article>
 
         <article class="card project">
           <div>
-            <div class="project-header"><span class="project-number">03</span></div>
-            <h3>Electronics Store</h3>
-            <p>Structured collection setup with advanced product filtering, custom specs table, and clear visual hierarchy.</p>
+            <div class="project-header">
+              <span class="project-number">03</span>
+            </div>
+            <h3>Electronics & Tech Shop</h3>
+            <p>Structured catalog setup with advanced product filtering, custom specs tables, and speed-optimized layouts.</p>
           </div>
-          <!-- غير # بالرابط الحقيقي لموقعك -->
-          <a href="https://your-store-link3.com" target="_blank" rel="noopener" class="project-link">Visit Live Store ↗</a>
+          <a href="#" class="project-link">View Project ↗</a>
         </article>
 
         <article class="card project">
           <div>
-            <div class="project-header"><span class="project-number">04</span></div>
-            <h3>Custom Landing Page</h3>
-            <p>High-converting Shopify landing page tailored for a specific product campaign to maximize ad ROI.</p>
+            <div class="project-header">
+              <span class="project-number">04</span>
+            </div>
+            <h3>High-Converting Landing Page</h3>
+            <p>Dedicated ad landing page built on Shopify to maximize campaign ROI and impulse purchases.</p>
           </div>
-          <!-- غير # بالرابط الحقيقي لموقعك -->
-          <a href="https://your-landing-page.com" target="_blank" rel="noopener" class="project-link">Visit Live Page ↗</a>
+          <a href="#" class="project-link">View Project ↗</a>
         </article>
-
       </div>
     </div>
   </section>
@@ -207,12 +205,24 @@
   <section id="services">
     <div class="wrap">
       <div class="section-head">
-        <div><div class="kicker">03 — Services</div><h2>What I can<br>help you with.</h2></div>
+        <div><div class="kicker">03 — Services</div><h2>What I can<br>do for you.</h2></div>
       </div>
       <div class="services">
-        <div class="card service"><div class="icon">01</div><h3>Shopify Development</h3><p>Store setup, theme customization, custom Liquid sections, and responsive storefront development.</p></div>
-        <div class="card service"><div class="icon">02</div><h3>Theme Customization</h3><p>Turn your design idea into a polished Shopify theme with clean, reusable sections.</p></div>
-        <div class="card service"><div class="icon">03</div><h3>CRO & Speed Audit</h3><p>Improve product pages, navigation, and page speed to boost your store conversion rate.</p></div>
+        <div class="card service">
+          <div class="icon">01</div>
+          <h3>Full Store Setup</h3>
+          <p>End-to-end Shopify store creation, configuration, payment gateway setup, and domain setup.</p>
+        </div>
+        <div class="card service">
+          <div class="icon">02</div>
+          <h3>Custom Liquid & Themes</h3>
+          <p>Customizing existing themes or building bespoke Liquid sections tailor-made for your brand.</p>
+        </div>
+        <div class="card service">
+          <div class="icon">03</div>
+          <h3>CRO & Speed Audit</h3>
+          <p>Optimizing page load speed, UX layout, and mobile funnel to boost your store conversion rates.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -224,21 +234,28 @@
           <div>
             <div class="kicker">04 — Contact</div>
             <h2>Have a Shopify project in mind?</h2>
-            <p style="color:var(--muted);margin-top:18px;max-width:520px">Let’s build a storefront that looks professional and makes it easier for customers to buy.</p>
+            <p style="color:var(--muted);margin-top:15px;max-width:520px">Let’s build a storefront that looks stunning and drives sales. Send a message or reach out directly.</p>
+            
             <div class="contact-list">
               <a class="contact-item" href="https://wa.me/201155145452" target="_blank"><span>WhatsApp / Phone</span>011 5514 5452</a>
               <a class="contact-item" href="mailto:k2reem4@gmail.com"><span>Email</span>k2reem4@gmail.com</a>
               <a class="contact-item" href="https://linkedin.com/in/karim-kamal-2753623a0" target="_blank" rel="noopener"><span>LinkedIn</span>Karim Kamal</a>
             </div>
           </div>
-          <div>
-            <form onsubmit="event.preventDefault(); alert('Thank you! Message sent.');">
-              <div class="form-group"><input type="text" placeholder="Your Name" required></div>
-              <div class="form-group"><input type="email" placeholder="Your Email" required></div>
-              <div class="form-group"><textarea rows="4" placeholder="Tell me about your project..." required></textarea></div>
-              <button type="submit" class="btn primary" style="width:100%;justify-content:center;cursor:pointer">Send Message ↗</button>
-            </form>
-          </div>
+
+          <!-- Contact Form -->
+          <form onsubmit="event.preventDefault(); alert('Thank you! Message sent.');">
+            <div class="form-group">
+              <input type="text" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+              <input type="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+              <textarea rows="4" placeholder="Tell me about your project..." required></textarea>
+            </div>
+            <button type="submit" class="btn primary" style="width:100%;justify-content:center;cursor:pointer">Send Message ↗</button>
+          </form>
         </div>
       </div>
     </div>
