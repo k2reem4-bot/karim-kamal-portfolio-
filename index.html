@@ -194,16 +194,46 @@
     .service p{color:var(--muted);font-size:14px}
     .icon{width:44px;height:44px;border:1px solid var(--line);border-radius:12px;display:grid;place-items:center;color:var(--accent);font-weight:700}
     
-    .contact{border:1px solid var(--line);border-radius:24px;padding:50px;background:radial-gradient(circle at 80% 20%,rgba(255,59,48,.1),transparent 40%),#0c1016}
-    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
-    .contact-list{display:grid;gap:12px;margin-top:20px}
-    .contact-item{padding:15px 17px;border:1px solid var(--line);border-radius:11px;background:rgba(255,255,255,.02);font-size:14px;transition:.2s}
-    .contact-item:hover{border-color:var(--accent);background:rgba(255,59,48,0.04)}
-    .contact-item span{display:block;color:#687486;font-size:11px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px}
-    
-    .form-group{margin-bottom:15px}
-    .form-group input, .form-group textarea{width:100%;padding:14px;background:#07090d;border:1px solid var(--line);border-radius:10px;color:white;font-family:inherit;font-size:14px;outline:none;transition:.2s}
-    .form-group input:focus, .form-group textarea:focus{border-color:var(--accent)}
+    /* Updated Contact Area (Without Form) */
+    .contact{
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:50px;
+      background:radial-gradient(circle at 80% 20%,rgba(255,59,48,.1),transparent 40%),#0c1016;
+    }
+    .contact-wrapper{
+      max-width:650px;
+    }
+    .contact-list{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:16px;
+      margin-top:30px;
+    }
+    .contact-item{
+      padding:20px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:rgba(255,255,255,.02);
+      font-size:15px;
+      font-weight:600;
+      transition:.2s;
+      display:block;
+    }
+    .contact-item:hover{
+      border-color:var(--accent);
+      background:rgba(255,59,48,0.06);
+      transform:translateY(-3px);
+    }
+    .contact-item span{
+      display:block;
+      color:#687486;
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.1em;
+      margin-bottom:6px;
+      font-weight:400;
+    }
     
     footer{border-top:1px solid var(--line);padding:25px 0;color:#667181;font-size:12px;display:flex;justify-content:space-between}
 
@@ -211,11 +241,12 @@
       .links{display:none;position:absolute;top:76px;left:0;right:0;background:var(--panel);flex-direction:column;padding:20px;border-bottom:1px solid var(--line);gap:18px}
       .links.mobile-active{display:flex}
       .menu-btn{display:block}
-      .about-grid,.contact-grid{grid-template-columns:1fr}
+      .about-grid{grid-template-columns:1fr}
       .projects,.services{grid-template-columns:1fr}
+      .contact-list{grid-template-columns:1fr}
       .section-head{display:block}.section-head p{margin-top:15px}
       .hero p{font-size:17px}
-      .contact{padding:25px}
+      .contact{padding:30px 20px}
     }
   </style>
 </head>
@@ -403,34 +434,29 @@
     </div>
   </section>
 
+  <!-- Contact Section without Form -->
   <section id="contact">
     <div class="wrap">
       <div class="contact">
-        <div class="contact-grid">
-          <div>
-            <div class="kicker">04 — Contact</div>
-            <h2>Have a Shopify project in mind?</h2>
-            <p style="color:var(--muted);margin-top:15px;max-width:520px">Let’s build a storefront that looks stunning and drives sales. Send a message or reach out directly.</p>
-            
-            <div class="contact-list">
-              <a class="contact-item" href="https://wa.me/201155145452" target="_blank"><span>WhatsApp / Phone</span>011 5514 5452</a>
-              <a class="contact-item" href="mailto:k2reem4@gmail.com"><span>Email</span>k2reem4@gmail.com</a>
-              <a class="contact-item" href="https://linkedin.com/in/karim-kamal-2753623a0" target="_blank" rel="noopener"><span>LinkedIn</span>Karim Kamal</a>
-            </div>
+        <div class="contact-wrapper">
+          <div class="kicker">04 — Contact</div>
+          <h2>Have a Shopify project in mind?</h2>
+          <p style="color:var(--muted);margin-top:15px">Let’s build a storefront that looks stunning and drives sales. Reach out directly through any of the channels below.</p>
+          
+          <div class="contact-list">
+            <a class="contact-item" href="https://wa.me/201155145452" target="_blank">
+              <span>WhatsApp / Phone</span>
+              011 5514 5452
+            </a>
+            <a class="contact-item" href="mailto:k2reem4@gmail.com">
+              <span>Email</span>
+              k2reem4@gmail.com
+            </a>
+            <a class="contact-item" href="https://linkedin.com/in/karim-kamal-2753623a0" target="_blank" rel="noopener">
+              <span>LinkedIn</span>
+              Karim Kamal
+            </a>
           </div>
-
-          <form onsubmit="event.preventDefault(); alert('Thank you! Message sent.');">
-            <div class="form-group">
-              <input type="text" placeholder="Your Name" required>
-            </div>
-            <div class="form-group">
-              <input type="email" placeholder="Your Email" required>
-            </div>
-            <div class="form-group">
-              <textarea rows="4" placeholder="Tell me about your project..." required></textarea>
-            </div>
-            <button type="submit" class="btn primary" style="width:100%;justify-content:center;cursor:pointer">Send Message ↗</button>
-          </form>
         </div>
       </div>
     </div>
