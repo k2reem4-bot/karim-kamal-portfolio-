@@ -1,56 +1,260 @@
-<!-- Projects Section -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Karim Kamal — Shopify Specialist Portfolio">
+  <title>Karim Kamal | Shopify Specialist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#07090d; --panel:#0d1118; --text:#f4f7fb; --muted:#9aa5b5;
+      --line:rgba(255,255,255,.09); --accent:#95e33d; --accent2:#d7ff9f;
+      --max:1180px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:"DM Sans",sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
+    nav{position:fixed;top:0;left:0;right:0;z-index:20;background:rgba(7,9,13,.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+    .nav-inner{height:76px;display:flex;align-items:center;justify-content:space-between}
+    .logo{font-family:"Space Grotesk";font-weight:700;font-size:22px;letter-spacing:-.04em}
+    .logo span{color:var(--accent)}
+    .links{display:flex;gap:30px;color:#c2cad6;font-size:14px}
+    .links a:hover{color:var(--accent)}
+    .menu-btn{display:none;background:none;border:0;color:white;font-size:25px;cursor:pointer}
+    .hero{min-height:100vh;display:grid;align-items:center;padding:150px 0 90px;position:relative;overflow:hidden}
+    .hero:before{content:"";position:absolute;width:650px;height:650px;border-radius:50%;background:radial-gradient(circle,rgba(149,227,61,.14),transparent 68%);right:-180px;top:80px;pointer-events:none}
+    .eyebrow{display:inline-flex;gap:9px;align-items:center;border:1px solid var(--line);padding:8px 13px;border-radius:99px;color:#cbd4df;font-size:13px;margin-bottom:25px;background:rgba(255,255,255,0.02)}
+    .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 14px var(--accent)}
+    h1{font-family:"Space Grotesk";font-size:clamp(48px,7.5vw,90px);line-height:.96;letter-spacing:-.05em;max-width:900px}
+    h1 .green{color:var(--accent)}
+    .hero p{color:var(--muted);max-width:650px;font-size:19px;margin:30px 0 36px}
+    .actions{display:flex;gap:13px;flex-wrap:wrap}
+    .btn{padding:13px 22px;border-radius:10px;border:1px solid var(--line);font-weight:600;font-size:14px;transition:.2s;display:inline-flex;align-items:center;gap:6px}
+    .btn.primary{background:var(--accent);color:#0b1006;border-color:var(--accent)}
+    .btn.primary:hover{background:var(--accent2)}
+    .btn:hover{transform:translateY(-2px)}
+    section{padding:105px 0}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:42px}
+    .kicker{color:var(--accent);font-size:12px;text-transform:uppercase;letter-spacing:.15em;font-weight:700;margin-bottom:10px}
+    h2{font-family:"Space Grotesk";font-size:clamp(36px,5vw,58px);line-height:1;letter-spacing:-.05em}
+    .section-head p{color:var(--muted);max-width:430px}
+    .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}
+    .card{background:linear-gradient(145deg,#10151d,#0a0d12);border:1px solid var(--line);border-radius:20px;padding:30px}
+    .about-copy{font-size:18px;color:#d2d9e3;line-height:1.65}
+    .stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .stat{padding:22px;border:1px solid var(--line);border-radius:15px;background:#0b0f15}
+    .stat strong{font:700 31px "Space Grotesk";display:block;color:var(--accent)}
+    .stat span{font-size:13px;color:var(--muted)}
+    .skills{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+    .tag{padding:8px 14px;border:1px solid var(--line);border-radius:8px;color:#c8d0db;font-size:13px;background:rgba(255,255,255,0.02)}
+    
+    /* Projects Styling Clean & Working */
+    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .project{min-height:300px;position:relative;overflow:hidden;padding:32px;display:flex;flex-direction:column;justify-content:space-between;transition:.3s border-color}
+    .project:hover{border-color:rgba(149,227,61,0.5)}
+    .project-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}
+    .project-number{color:#596473;font:700 14px "Space Grotesk"}
+    .project h3{font:700 26px "Space Grotesk";letter-spacing:-.03em;margin-bottom:8px}
+    .project p{color:var(--muted);font-size:14px;margin-bottom:20px}
+    .project-link{color:var(--accent);font-weight:600;font-size:14px;display:inline-flex;align-items:center;gap:4px;width:fit-content}
+    .project-link:hover{text-decoration:underline}
+
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+    .service h3{font:600 20px "Space Grotesk";margin:18px 0 9px}
+    .service p{color:var(--muted);font-size:14px}
+    .icon{width:44px;height:44px;border:1px solid var(--line);border-radius:12px;display:grid;place-items:center;color:var(--accent);font-weight:700}
+    
+    .contact{border:1px solid var(--line);border-radius:24px;padding:50px;background:radial-gradient(circle at 80% 20%,rgba(149,227,61,.08),transparent 40%),#0c1016}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+    .contact-list{display:grid;gap:12px;margin-top:20px}
+    .contact-item{padding:15px 17px;border:1px solid var(--line);border-radius:11px;background:rgba(255,255,255,.02);font-size:14px;transition:.2s}
+    .contact-item:hover{border-color:var(--accent)}
+    .contact-item span{display:block;color:#687486;font-size:11px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px}
+    
+    .form-group{margin-bottom:15px}
+    .form-group input, .form-group textarea{width:100%;padding:14px;background:#07090d;border:1px solid var(--line);border-radius:10px;color:white;font-family:inherit;font-size:14px;outline:none;transition:.2s}
+    .form-group input:focus{border-color:var(--accent)}
+    
+    footer{border-top:1px solid var(--line);padding:25px 0;color:#667181;font-size:12px;display:flex;justify-content:space-between}
+
+    @media(max-width:800px){
+      .links{display:none;position:absolute;top:76px;left:0;right:0;background:var(--panel);flex-direction:column;padding:20px;border-bottom:1px solid var(--line);gap:18px}
+      .links.mobile-active{display:flex}
+      .menu-btn{display:block}
+      .about-grid,.contact-grid{grid-template-columns:1fr}
+      .projects,.services{grid-template-columns:1fr}
+      .section-head{display:block}.section-head p{margin-top:15px}
+      .hero p{font-size:17px}
+      .contact{padding:25px}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a class="logo" href="#home">KARIM<span>.</span></a>
+    <div class="links" id="navLinks">
+      <a href="#about" onclick="toggleMenu()">About</a>
+      <a href="#projects" onclick="toggleMenu()">Projects</a>
+      <a href="#services" onclick="toggleMenu()">Services</a>
+      <a href="#contact" onclick="toggleMenu()">Contact</a>
+    </div>
+    <button class="menu-btn" aria-label="Menu" onclick="toggleMenu()">☰</button>
+  </div>
+</nav>
+
+<main id="home">
+  <section class="hero">
+    <div class="wrap">
+      <div class="eyebrow"><span class="dot"></span> Available for Shopify projects</div>
+      <h1>Shopify stores built to <span class="green">convert.</span></h1>
+      <p>I’m Karim Kamal, a Shopify Specialist focused on building clean, fast, and conversion-focused ecommerce experiences that help brands grow.</p>
+      <div class="actions">
+        <a class="btn primary" href="#contact">Let's work together ↗</a>
+        <a class="btn" href="#projects">View projects</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="kicker">01 — About</div><h2>Shopify, but<br>business-minded.</h2></div>
+        <p>I combine Shopify Liquid development, UX design, and CRO principles to create experiences that look sharp and perform.</p>
+      </div>
+      <div class="about-grid">
+        <div class="card">
+          <p class="about-copy">My focus is not just making a store look good. Every section, interaction, and mobile detail should make the customer journey clearer and the path to purchase easier.</p>
+          <div class="skills">
+            <span class="tag">Shopify 2.0</span>
+            <span class="tag">Liquid</span>
+            <span class="tag">HTML/CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">CRO</span>
+            <span class="tag">UX/UI</span>
+            <span class="tag">Responsive Design</span>
+          </div>
+        </div>
+        <div class="stats">
+          <div class="stat"><strong>01</strong><span>Shopify Specialist</span></div>
+          <div class="stat"><strong>∞</strong><span>Optimization mindset</span></div>
+          <div class="stat"><strong>24/7</strong><span>Mobile-first thinking</span></div>
+          <div class="stat"><strong>100%</strong><span>Focus on the user</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- قسم المشاريع المعدل مع الروابط والمواقع -->
   <section id="projects">
     <div class="wrap">
       <div class="section-head">
-        <div><div class="kicker">02 — Selected Work</div><h2>Projects that<br>drive results.</h2></div>
-        <p>A showcase of live Shopify stores, custom themes, and high-converting storefronts I've built.</p>
+        <div><div class="kicker">02 — Selected Work</div><h2>Projects that<br>mean business.</h2></div>
+        <p>A selection of live Shopify stores and custom e-commerce experiences I've developed.</p>
       </div>
       <div class="projects">
 
-        <!-- مشروع 1 -->
-        <article class="card-3d project" style="background-image: linear-gradient(to top, rgba(7,9,13,0.95), rgba(7,9,13,0.4)), url('رابط_صورة_المتجر_1.jpg'); background-size: cover; background-position: center;">
+        <article class="card project">
           <div>
-            <span class="project-number">01</span>
-            <h3>اسم المتجر الأول</h3>
-            <p>وصف قصير للمتجر (مثلاً: متجر ملابس مصمم بـ Shopify 2.0 مع أقسام مخصصة وسرعة تحميل عالية).</p>
+            <div class="project-header"><span class="project-number">01</span></div>
+            <h3>Fashion Store</h3>
+            <p>Modern Shopify storefront built with custom sections, fast loading speed, and mobile-first UX layout.</p>
           </div>
-          <!-- حط رابط المتجر الحقيقي مكان # -->
-          <a href="https://your-store-1.com" target="_blank" rel="noopener" class="project-link">Visit Live Store ↗</a>
+          <!-- غير # بالرابط الحقيقي لموقعك -->
+          <a href="https://your-store-link1.com" target="_blank" rel="noopener" class="project-link">Visit Live Store ↗</a>
         </article>
 
-        <!-- مشروع 2 -->
-        <article class="card-3d project" style="background-image: linear-gradient(to top, rgba(7,9,13,0.95), rgba(7,9,13,0.4)), url('رابط_صورة_المتجر_2.jpg'); background-size: cover; background-position: center;">
+        <article class="card project">
           <div>
-            <span class="project-number">02</span>
-            <h3>اسم المتجر الثاني</h3>
-            <p>وصف قصير للمتجر (مثلاً: متجر منتجات تجميل مخصص لزيادة نسبة التحويل على الموبايل).</p>
+            <div class="project-header"><span class="project-number">02</span></div>
+            <h3>Beauty Brand</h3>
+            <p>Premium ecommerce experience designed around product discovery, customer trust, and optimized checkout.</p>
           </div>
-          <!-- حط رابط المتجر الحقيقي مكان # -->
-          <a href="https://your-store-2.com" target="_blank" rel="noopener" class="project-link">Visit Live Store ↗</a>
+          <!-- غير # بالرابط الحقيقي لموقعك -->
+          <a href="https://your-store-link2.com" target="_blank" rel="noopener" class="project-link">Visit Live Store ↗</a>
         </article>
 
-        <!-- مشروع 3 -->
-        <article class="card-3d project" style="background-image: linear-gradient(to top, rgba(7,9,13,0.95), rgba(7,9,13,0.4)), url('رابط_صورة_المتجر_3.jpg'); background-size: cover; background-position: center;">
+        <article class="card project">
           <div>
-            <span class="project-number">03</span>
-            <h3>اسم المتجر الثالث</h3>
-            <p>وصف قصير للمتجر (مثلاً: متجر إلكترونيات يحتوي على فلترة متقدمة للمنتجات وزيادة سرعة الأداء).</p>
+            <div class="project-header"><span class="project-number">03</span></div>
+            <h3>Electronics Store</h3>
+            <p>Structured collection setup with advanced product filtering, custom specs table, and clear visual hierarchy.</p>
           </div>
-          <!-- حط رابط المتجر الحقيقي مكان # -->
-          <a href="https://your-store-3.com" target="_blank" rel="noopener" class="project-link">Visit Live Store ↗</a>
+          <!-- غير # بالرابط الحقيقي لموقعك -->
+          <a href="https://your-store-link3.com" target="_blank" rel="noopener" class="project-link">Visit Live Store ↗</a>
         </article>
 
-        <!-- مشروع 4 -->
-        <article class="card-3d project" style="background-image: linear-gradient(to top, rgba(7,9,13,0.95), rgba(7,9,13,0.4)), url('رابط_صورة_المتجر_4.jpg'); background-size: cover; background-position: center;">
+        <article class="card project">
           <div>
-            <span class="project-number">04</span>
-            <h3>صفحة هبوط مخصصة (Landing Page)</h3>
-            <p>صفحة مخصصة لحملات الإعلانات لزيادة مبيعات منتج معين.</p>
+            <div class="project-header"><span class="project-number">04</span></div>
+            <h3>Custom Landing Page</h3>
+            <p>High-converting Shopify landing page tailored for a specific product campaign to maximize ad ROI.</p>
           </div>
-          <!-- حط رابط الصفحة الحقيقي مكان # -->
+          <!-- غير # بالرابط الحقيقي لموقعك -->
           <a href="https://your-landing-page.com" target="_blank" rel="noopener" class="project-link">Visit Live Page ↗</a>
         </article>
 
       </div>
     </div>
   </section>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="kicker">03 — Services</div><h2>What I can<br>help you with.</h2></div>
+      </div>
+      <div class="services">
+        <div class="card service"><div class="icon">01</div><h3>Shopify Development</h3><p>Store setup, theme customization, custom Liquid sections, and responsive storefront development.</p></div>
+        <div class="card service"><div class="icon">02</div><h3>Theme Customization</h3><p>Turn your design idea into a polished Shopify theme with clean, reusable sections.</p></div>
+        <div class="card service"><div class="icon">03</div><h3>CRO & Speed Audit</h3><p>Improve product pages, navigation, and page speed to boost your store conversion rate.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact">
+        <div class="contact-grid">
+          <div>
+            <div class="kicker">04 — Contact</div>
+            <h2>Have a Shopify project in mind?</h2>
+            <p style="color:var(--muted);margin-top:18px;max-width:520px">Let’s build a storefront that looks professional and makes it easier for customers to buy.</p>
+            <div class="contact-list">
+              <a class="contact-item" href="https://wa.me/201155145452" target="_blank"><span>WhatsApp / Phone</span>011 5514 5452</a>
+              <a class="contact-item" href="mailto:k2reem4@gmail.com"><span>Email</span>k2reem4@gmail.com</a>
+              <a class="contact-item" href="https://linkedin.com/in/karim-kamal-2753623a0" target="_blank" rel="noopener"><span>LinkedIn</span>Karim Kamal</a>
+            </div>
+          </div>
+          <div>
+            <form onsubmit="event.preventDefault(); alert('Thank you! Message sent.');">
+              <div class="form-group"><input type="text" placeholder="Your Name" required></div>
+              <div class="form-group"><input type="email" placeholder="Your Email" required></div>
+              <div class="form-group"><textarea rows="4" placeholder="Tell me about your project..." required></textarea></div>
+              <button type="submit" class="btn primary" style="width:100%;justify-content:center;cursor:pointer">Send Message ↗</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <span>© 2026 Karim Kamal. All rights reserved.</span>
+  <span>Shopify Specialist</span>
+</footer>
+
+<script>
+  function toggleMenu() {
+    const links = document.getElementById('navLinks');
+    links.classList.toggle('mobile-active');
+  }
+</script>
+</body>
+</html>
