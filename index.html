@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Karim Kamal — Shopify Specialist Portfolio">
-  <title>Karim Kamal | Shopify Specialist</title>
+  <title>Karim Kamal | Shopify Specialist 3D</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
@@ -16,35 +16,52 @@
     }
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
-    body{font-family:"DM Sans",sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+    body{font-family:"DM Sans",sans-serif;background:var(--bg);color:var(--text);line-height:1.6;perspective:1000px}
     a{color:inherit;text-decoration:none}
     .wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
-    nav{position:fixed;top:0;left:0;right:0;z-index:20;background:rgba(7,9,13,.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(7,9,13,.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
     .nav-inner{height:76px;display:flex;align-items:center;justify-content:space-between}
     .logo{font-family:"Space Grotesk";font-weight:700;font-size:22px;letter-spacing:-.04em}
     .logo span{color:var(--accent)}
     .links{display:flex;gap:30px;color:#c2cad6;font-size:14px}
     .links a:hover{color:var(--accent)}
     .menu-btn{display:none;background:none;border:0;color:white;font-size:25px;cursor:pointer}
+    
+    /* Hero Section */
     .hero{min-height:100vh;display:grid;align-items:center;padding:150px 0 90px;position:relative;overflow:hidden}
-    .hero:before{content:"";position:absolute;width:650px;height:650px;border-radius:50%;background:radial-gradient(circle,rgba(255,59,48,.14),transparent 68%);right:-180px;top:80px;pointer-events:none}
+    .hero:before{content:"";position:absolute;width:650px;height:650px;border-radius:50%;background:radial-gradient(circle,rgba(255,59,48,.18),transparent 68%);right:-180px;top:80px;pointer-events:none}
     .eyebrow{display:inline-flex;gap:9px;align-items:center;border:1px solid var(--line);padding:8px 13px;border-radius:99px;color:#cbd4df;font-size:13px;margin-bottom:25px;background:rgba(255,255,255,0.02)}
     .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 14px var(--accent)}
     h1{font-family:"Space Grotesk";font-size:clamp(48px,7.5vw,90px);line-height:.96;letter-spacing:-.05em;max-width:900px}
     h1 .red{color:var(--accent)}
     .hero p{color:var(--muted);max-width:650px;font-size:19px;margin:30px 0 36px}
     .actions{display:flex;gap:13px;flex-wrap:wrap}
-    .btn{padding:13px 22px;border-radius:10px;border:1px solid var(--line);font-weight:600;font-size:14px;transition:.2s;display:inline-flex;align-items:center;gap:6px}
-    .btn.primary{background:var(--accent);color:#ffffff;border-color:var(--accent)}
-    .btn.primary:hover{background:var(--accent2)}
+    .btn{padding:13px 22px;border-radius:10px;border:1px solid var(--line);font-weight:600;font-size:14px;transition:.3s;display:inline-flex;align-items:center;gap:6px}
+    .btn.primary{background:var(--accent);color:#ffffff;border-color:var(--accent);box-shadow:0 10px 25px rgba(255,59,48,0.3)}
+    .btn.primary:hover{background:var(--accent2);transform:translateY(-3px) scale(1.02)}
     .btn:hover{transform:translateY(-2px)}
+
     section{padding:105px 0}
     .section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:42px}
     .kicker{color:var(--accent);font-size:12px;text-transform:uppercase;letter-spacing:.15em;font-weight:700;margin-bottom:10px}
     h2{font-family:"Space Grotesk";font-size:clamp(36px,5vw,58px);line-height:1;letter-spacing:-.05em}
     .section-head p{color:var(--muted);max-width:430px}
+
+    /* 3D Card Containers */
+    .card{
+      background:linear-gradient(145deg,#10151d,#0a0d12);
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:30px;
+      transition:transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.3s, box-shadow 0.3s;
+      transform-style:preserve-3d;
+    }
+    .card:hover{
+      border-color:rgba(255,59,48,0.4);
+      box-shadow:0 20px 40px rgba(0,0,0,0.6), 0 0 20px rgba(255,59,48,0.15);
+    }
+
     .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}
-    .card{background:linear-gradient(145deg,#10151d,#0a0d12);border:1px solid var(--line);border-radius:20px;padding:30px}
     .about-copy{font-size:18px;color:#d2d9e3;line-height:1.65}
     .stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}
     .stat{padding:22px;border:1px solid var(--line);border-radius:15px;background:#0b0f15}
@@ -53,61 +70,103 @@
     .skills{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
     .tag{padding:8px 14px;border:1px solid var(--line);border-radius:8px;color:#c8d0db;font-size:13px;background:rgba(255,255,255,0.02)}
     
-    /* Projects Styling with Dynamic Backgrounds */
-    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-    .project{
-      min-height:340px;
+    /* Projects 3D Cards & Layout */
+    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;perspective:1000px}
+    .project-card-3d{
       position:relative;
+      border-radius:20px;
+      border:1px solid var(--line);
+      background:#0d1118;
       overflow:hidden;
-      padding:32px;
       display:flex;
       flex-direction:column;
-      justify-content:space-between;
-      border:1px solid var(--line);
-      border-radius:20px;
-      background-size:cover;
-      background-position:center;
-      transition:.3s border-color, .3s transform;
+      transition:transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+      transform-style:preserve-3d;
     }
-    .project:hover{
-      border-color:rgba(255,59,48,0.6);
-      transform:translateY(-3px);
+    .project-card-3d:hover{
+      transform:translateY(-10px) rotateX(4deg) rotateY(-2deg);
+      border-color:var(--accent);
+      box-shadow:0 25px 50px rgba(0,0,0,0.8), 0 0 30px rgba(255,59,48,0.25);
     }
-    .project-overlay{
+    
+    /* Homepage Screenshot Preview Window */
+    .preview-window{
+      width:100%;
+      height:220px;
+      position:relative;
+      overflow:hidden;
+      border-bottom:1px solid var(--line);
+      background:#000;
+    }
+    .preview-window img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:top center;
+      transition:transform 0.6s ease;
+    }
+    .project-card-3d:hover .preview-window img{
+      transform:scale(1.08);
+    }
+    
+    /* Very Clear Password Badge */
+    .pass-banner{
       position:absolute;
-      inset:0;
-      background:linear-gradient(180deg, rgba(7,9,13,0.82) 0%, rgba(7,9,13,0.96) 100%);
-      z-index:1;
-      transition:.3s background;
+      top:15px;
+      right:15px;
+      z-index:10;
+      background:var(--accent);
+      color:#fff;
+      font-weight:700;
+      font-size:13px;
+      padding:6px 14px;
+      border-radius:30px;
+      box-shadow:0 4px 15px rgba(255,59,48,0.5);
+      letter-spacing:0.03em;
+      display:flex;
+      align-items:center;
+      gap:6px;
     }
-    .project:hover .project-overlay{
-      background:linear-gradient(180deg, rgba(7,9,13,0.72) 0%, rgba(7,9,13,0.92) 100%);
+
+    .project-content{
+      padding:28px;
+      display:flex;
+      flex-direction:column;
+      flex-grow:1;
+      justify-content:space-between;
+      transform:translateZ(30px); /* 3D effect depth */
     }
-    .project > *{position:relative;z-index:2}
-    .project-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
-    .project-number{color:var(--muted);font:700 14px "Space Grotesk"}
-    .pass-badge{
-      font-size:12px;
-      padding:4px 12px;
-      border-radius:20px;
+    .project-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+    .project-number{color:var(--accent);font:700 14px "Space Grotesk"}
+    .project-content h3{font:700 26px "Space Grotesk";letter-spacing:-.03em;margin-bottom:8px;color:#fff}
+    .project-content p{color:var(--muted);font-size:14px;line-height:1.6;margin-bottom:20px}
+    .project-link{
+      color:#fff;
       background:rgba(255,59,48,0.15);
-      color:var(--accent);
-      border:1px solid rgba(255,59,48,0.35);
+      border:1px solid rgba(255,59,48,0.4);
+      padding:10px 18px;
+      border-radius:10px;
       font-weight:600;
-      letter-spacing:0.02em;
+      font-size:14px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:6px;
+      transition:.3s;
+      width:100%;
     }
-    .project h3{font:700 28px "Space Grotesk";letter-spacing:-.03em;margin-bottom:8px;color:#fff}
-    .project p{color:#b0ba8;font-size:14px;max-width:480px;margin-bottom:20px;line-height:1.5}
-    .project-footer{display:flex;justify-content:space-between;align-items:center;margin-top:auto}
-    .project-link{color:var(--accent);font-weight:600;font-size:14px;display:inline-flex;align-items:center;gap:4px}
-    .project-link:hover{text-decoration:underline}
+    .project-link:hover{
+      background:var(--accent);
+      color:#fff;
+      box-shadow:0 5px 15px rgba(255,59,48,0.4);
+    }
 
     .services{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
     .service h3{font:600 20px "Space Grotesk";margin:18px 0 9px}
     .service p{color:var(--muted);font-size:14px}
     .icon{width:44px;height:44px;border:1px solid var(--line);border-radius:12px;display:grid;place-items:center;color:var(--accent);font-weight:700}
     
-    .contact{border:1px solid var(--line);border-radius:24px;padding:50px;background:radial-gradient(circle at 80% 20%,rgba(255,59,48,.08),transparent 40%),#0c1016}
+    .contact{border:1px solid var(--line);border-radius:24px;padding:50px;background:radial-gradient(circle at 80% 20%,rgba(255,59,48,.1),transparent 40%),#0c1016}
     .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
     .contact-list{display:grid;gap:12px;margin-top:20px}
     .contact-item{padding:15px 17px;border:1px solid var(--line);border-radius:11px;background:rgba(255,255,255,.02);font-size:14px;transition:.2s}
@@ -188,6 +247,7 @@
     </div>
   </section>
 
+  <!-- 3D Projects Section -->
   <section id="projects">
     <div class="wrap">
       <div class="section-head">
@@ -196,82 +256,92 @@
       </div>
       <div class="projects">
 
-        <!-- Aura Store -->
-        <article class="project" style="background-image: url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1000&auto=format&fit=crop');">
-          <div class="project-overlay"></div>
-          <div class="project-header">
-            <span class="project-number">01</span>
-            <span class="pass-badge">Password: 1</span>
+        <!-- Project 1: Aura -->
+        <article class="project-card-3d">
+          <div class="pass-banner">🔑 Password: 1</div>
+          <div class="preview-window">
+            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1000&auto=format&fit=crop" alt="Aura Store Home Preview">
           </div>
-          <div>
-            <h3>Aura</h3>
-            <p>Elegant modest fashion & abaya storefront featuring sleek collection layouts, custom banner sections, and structured product grids.</p>
-          </div>
-          <div class="project-footer">
+          <div class="project-content">
+            <div>
+              <div class="project-header">
+                <span class="project-number">PROJECT 01</span>
+              </div>
+              <h3>Aura</h3>
+              <p>Elegant modest fashion & abaya storefront featuring sleek collection layouts, custom banner sections, and structured product grids.</p>
+            </div>
             <a href="https://aura-uv3rgwvn.myshopify.com" target="_blank" rel="noopener" class="project-link">Visit Live Store ↗</a>
           </div>
         </article>
 
-        <!-- Glow Store -->
-        <article class="project" style="background-image: url('https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=1000&auto=format&fit=crop');">
-          <div class="project-overlay"></div>
-          <div class="project-header">
-            <span class="project-number">02</span>
-            <span class="pass-badge">Password: 1</span>
+        <!-- Project 2: Glow -->
+        <article class="project-card-3d">
+          <div class="pass-banner">🔑 Password: 1</div>
+          <div class="preview-window">
+            <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=1000&auto=format&fit=crop" alt="Glow Store Home Preview">
           </div>
-          <div>
-            <h3>Glow</h3>
-            <p>Beauty & skincare Shopify store built with interactive featured product showcases, custom swatch selectors, and store locator UI.</p>
-          </div>
-          <div class="project-footer">
+          <div class="project-content">
+            <div>
+              <div class="project-header">
+                <span class="project-number">PROJECT 02</span>
+              </div>
+              <h3>Glow</h3>
+              <p>Beauty & skincare Shopify store built with interactive featured product showcases, custom swatch selectors, and store locator UI.</p>
+            </div>
             <a href="https://glow-4dbf1yfb.myshopify.com" target="_blank" rel="noopener" class="project-link">Visit Live Store ↗</a>
           </div>
         </article>
 
-        <!-- Mavin Store -->
-        <article class="project" style="background-image: url('https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1000&auto=format&fit=crop');">
-          <div class="project-overlay"></div>
-          <div class="project-header">
-            <span class="project-number">03</span>
-            <span class="pass-badge">Password: 1</span>
+        <!-- Project 3: Mavin -->
+        <article class="project-card-3d">
+          <div class="pass-banner">🔑 Password: 1</div>
+          <div class="preview-window">
+            <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1000&auto=format&fit=crop" alt="Mavin Store Home Preview">
           </div>
-          <div>
-            <h3>Mavin</h3>
-            <p>Modern streetwear & apparel brand storefront with high-impact visual lookbooks, dark mode aesthetic, and fast mobile navigation.</p>
-          </div>
-          <div class="project-footer">
+          <div class="project-content">
+            <div>
+              <div class="project-header">
+                <span class="project-number">PROJECT 03</span>
+              </div>
+              <h3>Mavin</h3>
+              <p>Modern streetwear & apparel brand storefront with high-impact visual lookbooks, dark mode aesthetic, and fast mobile navigation.</p>
+            </div>
             <a href="https://mavin-9691.myshopify.com" target="_blank" rel="noopener" class="project-link">Visit Live Store ↗</a>
           </div>
         </article>
 
-        <!-- Rashfa Store -->
-        <article class="project" style="background-image: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1000&auto=format&fit=crop');">
-          <div class="project-overlay"></div>
-          <div class="project-header">
-            <span class="project-number">04</span>
-            <span class="pass-badge">Password: 1</span>
+        <!-- Project 4: Rashfa -->
+        <article class="project-card-3d">
+          <div class="pass-banner">🔑 Password: 1</div>
+          <div class="preview-window">
+            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1000&auto=format&fit=crop" alt="Rashfa Store Home Preview">
           </div>
-          <div>
-            <h3>Rashfa</h3>
-            <p>Specialty coffee & drinks brand setup with custom collection tabs, rich product story sections, and social proof sliders.</p>
-          </div>
-          <div class="project-footer">
+          <div class="project-content">
+            <div>
+              <div class="project-header">
+                <span class="project-number">PROJECT 04</span>
+              </div>
+              <h3>Rashfa</h3>
+              <p>Specialty coffee & drinks brand setup with custom collection tabs, rich product story sections, and social proof sliders.</p>
+            </div>
             <a href="https://rashfa-fvdp0hgx.myshopify.com" target="_blank" rel="noopener" class="project-link">Visit Live Store ↗</a>
           </div>
         </article>
 
-        <!-- Ricrac Store -->
-        <article class="project" style="background-image: url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1000&auto=format&fit=crop');">
-          <div class="project-overlay"></div>
-          <div class="project-header">
-            <span class="project-number">05</span>
-            <span class="pass-badge">Password: 1</span>
+        <!-- Project 5: Ricrac -->
+        <article class="project-card-3d">
+          <div class="pass-banner">🔑 Password: 1</div>
+          <div class="preview-window">
+            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1000&auto=format&fit=crop" alt="Ricrac Store Home Preview">
           </div>
-          <div>
-            <h3>Ricrac</h3>
-            <p>Vibrant furniture & home decor store with categorization by room, promotional marquees, and dynamic variant selectors.</p>
-          </div>
-          <div class="project-footer">
+          <div class="project-content">
+            <div>
+              <div class="project-header">
+                <span class="project-number">PROJECT 05</span>
+              </div>
+              <h3>Ricrac</h3>
+              <p>Vibrant furniture & home decor store with categorization by room, promotional marquees, and dynamic variant selectors.</p>
+            </div>
             <a href="https://ricrac-ix4if1dz.myshopify.com" target="_blank" rel="noopener" class="project-link">Visit Live Store ↗</a>
           </div>
         </article>
