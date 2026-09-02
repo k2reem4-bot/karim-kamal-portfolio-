@@ -10,25 +10,16 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#05070a; --panel:#0b0f17; --text:#f4f7fb; --muted:#8e9cb0;
-      --line:rgba(255,255,255,.08); --accent:#ff3b30; --accent-glow:rgba(255, 59, 48, 0.4);
+      --bg:#07090d; --panel:#0d1118; --text:#f4f7fb; --muted:#9aa5b5;
+      --line:rgba(255,255,255,.09); --accent:#ff3b30; --accent2:#ff6b63;
       --max:1180px;
     }
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
-    body{
-      font-family:"DM Sans",sans-serif;
-      background:var(--bg);
-      color:var(--text);
-      line-height:1.6;
-      perspective:1200px;
-      overflow-x:hidden;
-    }
+    body{font-family:"DM Sans",sans-serif;background:var(--bg);color:var(--text);line-height:1.6;perspective:1000px}
     a{color:inherit;text-decoration:none}
     .wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
-
-    /* Navbar */
-    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(5,7,10,.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(7,9,13,.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
     .nav-inner{height:76px;display:flex;align-items:center;justify-content:space-between}
     .logo{font-family:"Space Grotesk";font-weight:700;font-size:22px;letter-spacing:-.04em}
     .logo span{color:var(--accent)}
@@ -37,25 +28,397 @@
     .menu-btn{display:none;background:none;border:0;color:white;font-size:25px;cursor:pointer}
     
     /* Hero Section */
-    .hero{min-height:90vh;display:grid;align-items:center;padding:140px 0 80px;position:relative}
-    .hero:before{content:"";position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,var(--accent-glow),transparent 65%);right:-150px;top:50px;pointer-events:none;filter:blur(40px)}
-    .eyebrow{display:inline-flex;gap:9px;align-items:center;border:1px solid var(--line);padding:8px 14px;border-radius:99px;color:#cbd4df;font-size:13px;margin-bottom:25px;background:rgba(255,255,255,0.02)}
+    .hero{min-height:100vh;display:grid;align-items:center;padding:150px 0 90px;position:relative;overflow:hidden}
+    .hero:before{content:"";position:absolute;width:650px;height:650px;border-radius:50%;background:radial-gradient(circle,rgba(255,59,48,.18),transparent 68%);right:-180px;top:80px;pointer-events:none}
+    .eyebrow{display:inline-flex;gap:9px;align-items:center;border:1px solid var(--line);padding:8px 13px;border-radius:99px;color:#cbd4df;font-size:13px;margin-bottom:25px;background:rgba(255,255,255,0.02)}
     .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 14px var(--accent)}
-    h1{font-family:"Space Grotesk";font-size:clamp(48px,7.5vw,88px);line-height:.96;letter-spacing:-.05em;max-width:900px}
+    h1{font-family:"Space Grotesk";font-size:clamp(48px,7.5vw,90px);line-height:.96;letter-spacing:-.05em;max-width:900px}
     h1 .red{color:var(--accent)}
-    .hero p{color:var(--muted);max-width:650px;font-size:19px;margin:25px 0 35px}
+    .hero p{color:var(--muted);max-width:650px;font-size:19px;margin:30px 0 36px}
     .actions{display:flex;gap:13px;flex-wrap:wrap}
-    .btn{padding:13px 24px;border-radius:12px;border:1px solid var(--line);font-weight:600;font-size:14px;transition:.3s;display:inline-flex;align-items:center;gap:6px}
-    .btn.primary{background:var(--accent);color:#ffffff;border-color:var(--accent);box-shadow:0 10px 25px var(--accent-glow)}
-    .btn.primary:hover{background:#ff5247;transform:translateY(-3px) scale(1.02)}
+    .btn{padding:13px 22px;border-radius:10px;border:1px solid var(--line);font-weight:600;font-size:14px;transition:.3s;display:inline-flex;align-items:center;gap:6px}
+    .btn.primary{background:var(--accent);color:#ffffff;border-color:var(--accent);box-shadow:0 10px 25px rgba(255,59,48,0.3)}
+    .btn.primary:hover{background:var(--accent2);transform:translateY(-3px) scale(1.02)}
     .btn:hover{transform:translateY(-2px)}
 
-    section{padding:100px 0}
-    .section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:45px}
+    section{padding:105px 0}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:42px}
     .kicker{color:var(--accent);font-size:12px;text-transform:uppercase;letter-spacing:.15em;font-weight:700;margin-bottom:10px}
-    h2{font-family:"Space Grotesk";font-size:clamp(36px,5vw,56px);line-height:1;letter-spacing:-.05em}
+    h2{font-family:"Space Grotesk";font-size:clamp(36px,5vw,58px);line-height:1;letter-spacing:-.05em}
     .section-head p{color:var(--muted);max-width:430px}
 
-    /* Standard Cards */
+    /* 3D Card Containers */
     .card{
-      background:linear-gradient(145deg,#0d12
+      background:linear-gradient(145deg,#10151d,#0a0d12);
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:30px;
+      transition:transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.3s, box-shadow 0.3s;
+      transform-style:preserve-3d;
+    }
+    .card:hover{
+      border-color:rgba(255,59,48,0.4);
+      box-shadow:0 20px 40px rgba(0,0,0,0.6), 0 0 20px rgba(255,59,48,0.15);
+    }
+
+    .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}
+    .about-copy{font-size:18px;color:#d2d9e3;line-height:1.65}
+    .stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .stat{padding:22px;border:1px solid var(--line);border-radius:15px;background:#0b0f15}
+    .stat strong{font:700 31px "Space Grotesk";display:block;color:var(--accent)}
+    .stat span{font-size:13px;color:var(--muted)}
+    .skills{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+    .tag{padding:8px 14px;border:1px solid var(--line);border-radius:8px;color:#c8d0db;font-size:13px;background:rgba(255,255,255,0.02)}
+    
+    /* Projects 3D Cards & Layout */
+    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;perspective:1000px}
+    .project-card-3d{
+      position:relative;
+      border-radius:20px;
+      border:1px solid var(--line);
+      background:#0d1118;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      transition:transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+      transform-style:preserve-3d;
+    }
+    .project-card-3d:hover{
+      transform:translateY(-10px) rotateX(4deg) rotateY(-2deg);
+      border-color:var(--accent);
+      box-shadow:0 25px 50px rgba(0,0,0,0.8), 0 0 30px rgba(255,59,48,0.25);
+    }
+    
+    /* Homepage Screenshot Preview Window */
+    .preview-window{
+      width:100%;
+      height:220px;
+      position:relative;
+      overflow:hidden;
+      border-bottom:1px solid var(--line);
+      background:#000;
+    }
+    .preview-window img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:top center;
+      transition:transform 0.6s ease;
+    }
+    .project-card-3d:hover .preview-window img{
+      transform:scale(1.08);
+    }
+    
+    /* Very Clear Password Badge */
+    .pass-banner{
+      position:absolute;
+      top:15px;
+      right:15px;
+      z-index:10;
+      background:var(--accent);
+      color:#fff;
+      font-weight:700;
+      font-size:13px;
+      padding:6px 14px;
+      border-radius:30px;
+      box-shadow:0 4px 15px rgba(255,59,48,0.5);
+      letter-spacing:0.03em;
+      display:flex;
+      align-items:center;
+      gap:6px;
+    }
+
+    .project-content{
+      padding:28px;
+      display:flex;
+      flex-direction:column;
+      flex-grow:1;
+      justify-content:space-between;
+      transform:translateZ(30px); /* 3D effect depth */
+    }
+    .project-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+    .project-number{color:var(--accent);font:700 14px "Space Grotesk"}
+    .project-content h3{font:700 26px "Space Grotesk";letter-spacing:-.03em;margin-bottom:8px;color:#fff}
+    .project-content p{color:var(--muted);font-size:14px;line-height:1.6;margin-bottom:20px}
+    .project-link{
+      color:#fff;
+      background:rgba(255,59,48,0.15);
+      border:1px solid rgba(255,59,48,0.4);
+      padding:10px 18px;
+      border-radius:10px;
+      font-weight:600;
+      font-size:14px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:6px;
+      transition:.3s;
+      width:100%;
+    }
+    .project-link:hover{
+      background:var(--accent);
+      color:#fff;
+      box-shadow:0 5px 15px rgba(255,59,48,0.4);
+    }
+
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+    .service h3{font:600 20px "Space Grotesk";margin:18px 0 9px}
+    .service p{color:var(--muted);font-size:14px}
+    .icon{width:44px;height:44px;border:1px solid var(--line);border-radius:12px;display:grid;place-items:center;color:var(--accent);font-weight:700}
+    
+    .contact{border:1px solid var(--line);border-radius:24px;padding:50px;background:radial-gradient(circle at 80% 20%,rgba(255,59,48,.1),transparent 40%),#0c1016}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+    .contact-list{display:grid;gap:12px;margin-top:20px}
+    .contact-item{padding:15px 17px;border:1px solid var(--line);border-radius:11px;background:rgba(255,255,255,.02);font-size:14px;transition:.2s}
+    .contact-item:hover{border-color:var(--accent);background:rgba(255,59,48,0.04)}
+    .contact-item span{display:block;color:#687486;font-size:11px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px}
+    
+    .form-group{margin-bottom:15px}
+    .form-group input, .form-group textarea{width:100%;padding:14px;background:#07090d;border:1px solid var(--line);border-radius:10px;color:white;font-family:inherit;font-size:14px;outline:none;transition:.2s}
+    .form-group input:focus, .form-group textarea:focus{border-color:var(--accent)}
+    
+    footer{border-top:1px solid var(--line);padding:25px 0;color:#667181;font-size:12px;display:flex;justify-content:space-between}
+
+    @media(max-width:800px){
+      .links{display:none;position:absolute;top:76px;left:0;right:0;background:var(--panel);flex-direction:column;padding:20px;border-bottom:1px solid var(--line);gap:18px}
+      .links.mobile-active{display:flex}
+      .menu-btn{display:block}
+      .about-grid,.contact-grid{grid-template-columns:1fr}
+      .projects,.services{grid-template-columns:1fr}
+      .section-head{display:block}.section-head p{margin-top:15px}
+      .hero p{font-size:17px}
+      .contact{padding:25px}
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <div class="wrap nav-inner">
+    <a class="logo" href="#home">KARIM<span>.</span></a>
+    <div class="links" id="navLinks">
+      <a href="#about" onclick="toggleMenu()">About</a>
+      <a href="#projects" onclick="toggleMenu()">Projects</a>
+      <a href="#services" onclick="toggleMenu()">Services</a>
+      <a href="#contact" onclick="toggleMenu()">Contact</a>
+    </div>
+    <button class="menu-btn" aria-label="Menu" onclick="toggleMenu()">☰</button>
+  </div>
+</nav>
+
+<main id="home">
+  <section class="hero">
+    <div class="wrap">
+      <div class="eyebrow"><span class="dot"></span> Available for new Shopify projects</div>
+      <h1>Shopify stores built to <span class="red">convert.</span></h1>
+      <p>I’m Karim Kamal, a Shopify Specialist focused on building clean, fast, and high-converting ecommerce experiences that scale your business.</p>
+      <div class="actions">
+        <a class="btn primary" href="#contact">Let's work together ↗</a>
+        <a class="btn" href="#projects">View projects</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="kicker">01 — About</div><h2>Shopify, but<br>business-minded.</h2></div>
+        <p>I combine Shopify Liquid development, UX design, and Conversion Rate Optimization (CRO) to build stores that look great and sell more.</p>
+      </div>
+      <div class="about-grid">
+        <div class="card">
+          <p class="about-copy">My focus isn't just making a store look visual. Every section, layout, and mobile interaction is strategically built to clarify the customer journey and maximize purchase intent.</p>
+          <div class="skills">
+            <span class="tag">Shopify 2.0</span>
+            <span class="tag">Liquid</span>
+            <span class="tag">HTML5/CSS3</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">CRO & UX</span>
+            <span class="tag">Theme Customization</span>
+            <span class="tag">App Integration</span>
+          </div>
+        </div>
+        <div class="stats">
+          <div class="stat"><strong>Shopify</strong><span>Specialist</span></div>
+          <div class="stat"><strong>CRO</strong><span>Optimization Focus</span></div>
+          <div class="stat"><strong>100%</strong><span>Mobile First</span></div>
+          <div class="stat"><strong>Fast</strong><span>Loading Speed</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3D Projects Section -->
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="kicker">02 — Selected Work</div><h2>Projects that<br>drive results.</h2></div>
+        <p>A showcase of live Shopify stores, custom Liquid themes, and high-converting storefronts I've built.</p>
+      </div>
+      <div class="projects">
+
+        <!-- Project 1: Aura -->
+        <article class="project-card-3d">
+          <div class="pass-banner">🔑 Password: 1</div>
+          <div class="preview-window">
+            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1000&auto=format&fit=crop" alt="Aura Store Home Preview">
+          </div>
+          <div class="project-content">
+            <div>
+              <div class="project-header">
+                <span class="project-number">PROJECT 01</span>
+              </div>
+              <h3>Aura</h3>
+              <p>Elegant modest fashion & abaya storefront featuring sleek collection layouts, custom banner sections, and structured product grids.</p>
+            </div>
+            <a href="https://aura-uv3rgwvn.myshopify.com" target="_blank" rel="noopener" class="project-link">Visit Live Store ↗</a>
+          </div>
+        </article>
+
+        <!-- Project 2: Glow -->
+        <article class="project-card-3d">
+          <div class="pass-banner">🔑 Password: 1</div>
+          <div class="preview-window">
+            <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=1000&auto=format&fit=crop" alt="Glow Store Home Preview">
+          </div>
+          <div class="project-content">
+            <div>
+              <div class="project-header">
+                <span class="project-number">PROJECT 02</span>
+              </div>
+              <h3>Glow</h3>
+              <p>Beauty & skincare Shopify store built with interactive featured product showcases, custom swatch selectors, and store locator UI.</p>
+            </div>
+            <a href="https://glow-4dbf1yfb.myshopify.com" target="_blank" rel="noopener" class="project-link">Visit Live Store ↗</a>
+          </div>
+        </article>
+
+        <!-- Project 3: Mavin -->
+        <article class="project-card-3d">
+          <div class="pass-banner">🔑 Password: 1</div>
+          <div class="preview-window">
+            <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1000&auto=format&fit=crop" alt="Mavin Store Home Preview">
+          </div>
+          <div class="project-content">
+            <div>
+              <div class="project-header">
+                <span class="project-number">PROJECT 03</span>
+              </div>
+              <h3>Mavin</h3>
+              <p>Modern streetwear & apparel brand storefront with high-impact visual lookbooks, dark mode aesthetic, and fast mobile navigation.</p>
+            </div>
+            <a href="https://mavin-9691.myshopify.com" target="_blank" rel="noopener" class="project-link">Visit Live Store ↗</a>
+          </div>
+        </article>
+
+        <!-- Project 4: Rashfa -->
+        <article class="project-card-3d">
+          <div class="pass-banner">🔑 Password: 1</div>
+          <div class="preview-window">
+            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1000&auto=format&fit=crop" alt="Rashfa Store Home Preview">
+          </div>
+          <div class="project-content">
+            <div>
+              <div class="project-header">
+                <span class="project-number">PROJECT 04</span>
+              </div>
+              <h3>Rashfa</h3>
+              <p>Specialty coffee & drinks brand setup with custom collection tabs, rich product story sections, and social proof sliders.</p>
+            </div>
+            <a href="https://rashfa-fvdp0hgx.myshopify.com" target="_blank" rel="noopener" class="project-link">Visit Live Store ↗</a>
+          </div>
+        </article>
+
+        <!-- Project 5: Ricrac -->
+        <article class="project-card-3d">
+          <div class="pass-banner">🔑 Password: 1</div>
+          <div class="preview-window">
+            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1000&auto=format&fit=crop" alt="Ricrac Store Home Preview">
+          </div>
+          <div class="project-content">
+            <div>
+              <div class="project-header">
+                <span class="project-number">PROJECT 05</span>
+              </div>
+              <h3>Ricrac</h3>
+              <p>Vibrant furniture & home decor store with categorization by room, promotional marquees, and dynamic variant selectors.</p>
+            </div>
+            <a href="https://ricrac-ix4if1dz.myshopify.com" target="_blank" rel="noopener" class="project-link">Visit Live Store ↗</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="kicker">03 — Services</div><h2>What I can<br>do for you.</h2></div>
+      </div>
+      <div class="services">
+        <div class="card service">
+          <div class="icon">01</div>
+          <h3>Full Store Setup</h3>
+          <p>End-to-end Shopify store creation, configuration, payment gateway setup, and domain setup.</p>
+        </div>
+        <div class="card service">
+          <div class="icon">02</div>
+          <h3>Custom Liquid & Themes</h3>
+          <p>Customizing existing themes or building bespoke Liquid sections tailor-made for your brand.</p>
+        </div>
+        <div class="card service">
+          <div class="icon">03</div>
+          <h3>CRO & Speed Audit</h3>
+          <p>Optimizing page load speed, UX layout, and mobile funnel to boost your store conversion rates.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact">
+        <div class="contact-grid">
+          <div>
+            <div class="kicker">04 — Contact</div>
+            <h2>Have a Shopify project in mind?</h2>
+            <p style="color:var(--muted);margin-top:15px;max-width:520px">Let’s build a storefront that looks stunning and drives sales. Send a message or reach out directly.</p>
+            
+            <div class="contact-list">
+              <a class="contact-item" href="https://wa.me/201155145452" target="_blank"><span>WhatsApp / Phone</span>011 5514 5452</a>
+              <a class="contact-item" href="mailto:k2reem4@gmail.com"><span>Email</span>k2reem4@gmail.com</a>
+              <a class="contact-item" href="https://linkedin.com/in/karim-kamal-2753623a0" target="_blank" rel="noopener"><span>LinkedIn</span>Karim Kamal</a>
+            </div>
+          </div>
+
+          <form onsubmit="event.preventDefault(); alert('Thank you! Message sent.');">
+            <div class="form-group">
+              <input type="text" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+              <input type="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+              <textarea rows="4" placeholder="Tell me about your project..." required></textarea>
+            </div>
+            <button type="submit" class="btn primary" style="width:100%;justify-content:center;cursor:pointer">Send Message ↗</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <span>© 2026 Karim Kamal. All rights reserved.</span>
+  <span>Shopify Specialist</span>
+</footer>
+
+<script>
+  function toggleMenu() {
+    const links = document.getElementById('navLinks');
+    links.classList.toggle('mobile-active');
+  }
+</script>
+</body>
+</html>
