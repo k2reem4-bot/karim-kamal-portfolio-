@@ -11,7 +11,7 @@
   <style>
     :root{
       --bg:#07090d; --panel:#0d1118; --text:#f4f7fb; --muted:#9aa5b5;
-      --line:rgba(255,255,255,.09); --accent:#95e33d; --accent2:#d7ff9f;
+      --line:rgba(255,255,255,.09); --accent:#ff3b30; --accent2:#ff6b63;
       --max:1180px;
     }
     *{box-sizing:border-box;margin:0;padding:0}
@@ -27,15 +27,15 @@
     .links a:hover{color:var(--accent)}
     .menu-btn{display:none;background:none;border:0;color:white;font-size:25px;cursor:pointer}
     .hero{min-height:100vh;display:grid;align-items:center;padding:150px 0 90px;position:relative;overflow:hidden}
-    .hero:before{content:"";position:absolute;width:650px;height:650px;border-radius:50%;background:radial-gradient(circle,rgba(149,227,61,.14),transparent 68%);right:-180px;top:80px;pointer-events:none}
+    .hero:before{content:"";position:absolute;width:650px;height:650px;border-radius:50%;background:radial-gradient(circle,rgba(255,59,48,.14),transparent 68%);right:-180px;top:80px;pointer-events:none}
     .eyebrow{display:inline-flex;gap:9px;align-items:center;border:1px solid var(--line);padding:8px 13px;border-radius:99px;color:#cbd4df;font-size:13px;margin-bottom:25px;background:rgba(255,255,255,0.02)}
     .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 14px var(--accent)}
     h1{font-family:"Space Grotesk";font-size:clamp(48px,7.5vw,90px);line-height:.96;letter-spacing:-.05em;max-width:900px}
-    h1 .green{color:var(--accent)}
+    h1 .red{color:var(--accent)}
     .hero p{color:var(--muted);max-width:650px;font-size:19px;margin:30px 0 36px}
     .actions{display:flex;gap:13px;flex-wrap:wrap}
     .btn{padding:13px 22px;border-radius:10px;border:1px solid var(--line);font-weight:600;font-size:14px;transition:.2s;display:inline-flex;align-items:center;gap:6px}
-    .btn.primary{background:var(--accent);color:#0b1006;border-color:var(--accent)}
+    .btn.primary{background:var(--accent);color:#ffffff;border-color:var(--accent)}
     .btn.primary:hover{background:var(--accent2)}
     .btn:hover{transform:translateY(-2px)}
     section{padding:105px 0}
@@ -66,33 +66,33 @@
       border:1px solid var(--line);
       border-radius:20px;
       background-size:cover;
-      background-position:top center;
+      background-position:center;
       transition:.3s border-color, .3s transform;
     }
     .project:hover{
-      border-color:rgba(149,227,61,0.5);
+      border-color:rgba(255,59,48,0.6);
       transform:translateY(-3px);
     }
     .project-overlay{
       position:absolute;
       inset:0;
-      background:linear-gradient(180deg, rgba(7,9,13,0.75) 0%, rgba(7,9,13,0.95) 100%);
+      background:linear-gradient(180deg, rgba(7,9,13,0.82) 0%, rgba(7,9,13,0.96) 100%);
       z-index:1;
-      transition:.3s opacity;
+      transition:.3s background;
     }
     .project:hover .project-overlay{
-      background:linear-gradient(180deg, rgba(7,9,13,0.65) 0%, rgba(7,9,13,0.92) 100%);
+      background:linear-gradient(180deg, rgba(7,9,13,0.72) 0%, rgba(7,9,13,0.92) 100%);
     }
     .project > *{position:relative;z-index:2}
     .project-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
     .project-number{color:var(--muted);font:700 14px "Space Grotesk"}
     .pass-badge{
-      font-size:11px;
-      padding:4px 10px;
+      font-size:12px;
+      padding:4px 12px;
       border-radius:20px;
-      background:rgba(149,227,61,0.12);
+      background:rgba(255,59,48,0.15);
       color:var(--accent);
-      border:1px solid rgba(149,227,61,0.3);
+      border:1px solid rgba(255,59,48,0.35);
       font-weight:600;
       letter-spacing:0.02em;
     }
@@ -107,11 +107,11 @@
     .service p{color:var(--muted);font-size:14px}
     .icon{width:44px;height:44px;border:1px solid var(--line);border-radius:12px;display:grid;place-items:center;color:var(--accent);font-weight:700}
     
-    .contact{border:1px solid var(--line);border-radius:24px;padding:50px;background:radial-gradient(circle at 80% 20%,rgba(149,227,61,.08),transparent 40%),#0c1016}
+    .contact{border:1px solid var(--line);border-radius:24px;padding:50px;background:radial-gradient(circle at 80% 20%,rgba(255,59,48,.08),transparent 40%),#0c1016}
     .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
     .contact-list{display:grid;gap:12px;margin-top:20px}
     .contact-item{padding:15px 17px;border:1px solid var(--line);border-radius:11px;background:rgba(255,255,255,.02);font-size:14px;transition:.2s}
-    .contact-item:hover{border-color:var(--accent);background:rgba(149,227,61,0.03)}
+    .contact-item:hover{border-color:var(--accent);background:rgba(255,59,48,0.04)}
     .contact-item span{display:block;color:#687486;font-size:11px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px}
     
     .form-group{margin-bottom:15px}
@@ -150,7 +150,7 @@
   <section class="hero">
     <div class="wrap">
       <div class="eyebrow"><span class="dot"></span> Available for new Shopify projects</div>
-      <h1>Shopify stores built to <span class="green">convert.</span></h1>
+      <h1>Shopify stores built to <span class="red">convert.</span></h1>
       <p>I’m Karim Kamal, a Shopify Specialist focused on building clean, fast, and high-converting ecommerce experiences that scale your business.</p>
       <div class="actions">
         <a class="btn primary" href="#contact">Let's work together ↗</a>
@@ -197,7 +197,7 @@
       <div class="projects">
 
         <!-- Aura Store -->
-        <article class="project" style="background-image: url('https://aura-uv3rgwvn.myshopify.com/cdn/shop/files/hero-banner.jpg');">
+        <article class="project" style="background-image: url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1000&auto=format&fit=crop');">
           <div class="project-overlay"></div>
           <div class="project-header">
             <span class="project-number">01</span>
@@ -213,7 +213,7 @@
         </article>
 
         <!-- Glow Store -->
-        <article class="project" style="background-image: url('https://glow-4dbf1yfb.myshopify.com/cdn/shop/files/skincare-hero.jpg');">
+        <article class="project" style="background-image: url('https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=1000&auto=format&fit=crop');">
           <div class="project-overlay"></div>
           <div class="project-header">
             <span class="project-number">02</span>
@@ -229,7 +229,7 @@
         </article>
 
         <!-- Mavin Store -->
-        <article class="project" style="background-image: url('https://mavin-9691.myshopify.com/cdn/shop/files/streetwear-banner.jpg');">
+        <article class="project" style="background-image: url('https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1000&auto=format&fit=crop');">
           <div class="project-overlay"></div>
           <div class="project-header">
             <span class="project-number">03</span>
@@ -245,7 +245,7 @@
         </article>
 
         <!-- Rashfa Store -->
-        <article class="project" style="background-image: url('https://rashfa-fvdp0hgx.myshopify.com/cdn/shop/files/coffee-banner.jpg');">
+        <article class="project" style="background-image: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1000&auto=format&fit=crop');">
           <div class="project-overlay"></div>
           <div class="project-header">
             <span class="project-number">04</span>
@@ -261,7 +261,7 @@
         </article>
 
         <!-- Ricrac Store -->
-        <article class="project" style="background-image: url('https://ricrac-ix4if1dz.myshopify.com/cdn/shop/files/furniture-hero.jpg');">
+        <article class="project" style="background-image: url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1000&auto=format&fit=crop');">
           <div class="project-overlay"></div>
           <div class="project-header">
             <span class="project-number">05</span>
