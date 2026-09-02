@@ -52,16 +52,56 @@
     .stat span{font-size:13px;color:var(--muted)}
     .skills{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
     .tag{padding:8px 14px;border:1px solid var(--line);border-radius:8px;color:#c8d0db;font-size:13px;background:rgba(255,255,255,0.02)}
+    
+    /* Projects Styling with Dynamic Backgrounds */
     .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-    .project{min-height:320px;position:relative;overflow:hidden;padding:32px;display:flex;flex-direction:column;justify-content:space-between;transition:.3s border-color}
-    .project:hover{border-color:rgba(149,227,61,0.4)}
-    .project:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(149,227,61,.12),transparent 50%,rgba(255,255,255,.02));opacity:.7}
-    .project > *{position:relative}
+    .project{
+      min-height:340px;
+      position:relative;
+      overflow:hidden;
+      padding:32px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      border:1px solid var(--line);
+      border-radius:20px;
+      background-size:cover;
+      background-position:top center;
+      transition:.3s border-color, .3s transform;
+    }
+    .project:hover{
+      border-color:rgba(149,227,61,0.5);
+      transform:translateY(-3px);
+    }
+    .project-overlay{
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg, rgba(7,9,13,0.75) 0%, rgba(7,9,13,0.95) 100%);
+      z-index:1;
+      transition:.3s opacity;
+    }
+    .project:hover .project-overlay{
+      background:linear-gradient(180deg, rgba(7,9,13,0.65) 0%, rgba(7,9,13,0.92) 100%);
+    }
+    .project > *{position:relative;z-index:2}
     .project-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
-    .project-number{color:#596473;font:700 14px "Space Grotesk"}
-    .project h3{font:700 28px "Space Grotesk";letter-spacing:-.03em;margin-bottom:8px}
-    .project p{color:var(--muted);font-size:14px;max-width:480px;margin-bottom:20px}
+    .project-number{color:var(--muted);font:700 14px "Space Grotesk"}
+    .pass-badge{
+      font-size:11px;
+      padding:4px 10px;
+      border-radius:20px;
+      background:rgba(149,227,61,0.12);
+      color:var(--accent);
+      border:1px solid rgba(149,227,61,0.3);
+      font-weight:600;
+      letter-spacing:0.02em;
+    }
+    .project h3{font:700 28px "Space Grotesk";letter-spacing:-.03em;margin-bottom:8px;color:#fff}
+    .project p{color:#b0ba8;font-size:14px;max-width:480px;margin-bottom:20px;line-height:1.5}
+    .project-footer{display:flex;justify-content:space-between;align-items:center;margin-top:auto}
     .project-link{color:var(--accent);font-weight:600;font-size:14px;display:inline-flex;align-items:center;gap:4px}
+    .project-link:hover{text-decoration:underline}
+
     .services{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
     .service h3{font:600 20px "Space Grotesk";margin:18px 0 9px}
     .service p{color:var(--muted);font-size:14px}
@@ -156,49 +196,84 @@
       </div>
       <div class="projects">
 
-        <article class="card project">
+        <!-- Aura Store -->
+        <article class="project" style="background-image: url('https://aura-uv3rgwvn.myshopify.com/cdn/shop/files/hero-banner.jpg');">
+          <div class="project-overlay"></div>
+          <div class="project-header">
+            <span class="project-number">01</span>
+            <span class="pass-badge">Password: 1</span>
+          </div>
           <div>
-            <div class="project-header"><span class="project-number">01</span></div>
             <h3>Aura</h3>
             <p>Elegant modest fashion & abaya storefront featuring sleek collection layouts, custom banner sections, and structured product grids.</p>
           </div>
-          <a href="https://aura-uv3rgwvn.myshopify.com" target="_blank" rel="noopener" class="project-link">Visit Live Store ↗</a>
+          <div class="project-footer">
+            <a href="https://aura-uv3rgwvn.myshopify.com" target="_blank" rel="noopener" class="project-link">Visit Live Store ↗</a>
+          </div>
         </article>
 
-        <article class="card project">
+        <!-- Glow Store -->
+        <article class="project" style="background-image: url('https://glow-4dbf1yfb.myshopify.com/cdn/shop/files/skincare-hero.jpg');">
+          <div class="project-overlay"></div>
+          <div class="project-header">
+            <span class="project-number">02</span>
+            <span class="pass-badge">Password: 1</span>
+          </div>
           <div>
-            <div class="project-header"><span class="project-number">02</span></div>
             <h3>Glow</h3>
             <p>Beauty & skincare Shopify store built with interactive featured product showcases, custom swatch selectors, and store locator UI.</p>
           </div>
-          <a href="https://glow-4dbf1yfb.myshopify.com" target="_blank" rel="noopener" class="project-link">Visit Live Store ↗</a>
+          <div class="project-footer">
+            <a href="https://glow-4dbf1yfb.myshopify.com" target="_blank" rel="noopener" class="project-link">Visit Live Store ↗</a>
+          </div>
         </article>
 
-        <article class="card project">
+        <!-- Mavin Store -->
+        <article class="project" style="background-image: url('https://mavin-9691.myshopify.com/cdn/shop/files/streetwear-banner.jpg');">
+          <div class="project-overlay"></div>
+          <div class="project-header">
+            <span class="project-number">03</span>
+            <span class="pass-badge">Password: 1</span>
+          </div>
           <div>
-            <div class="project-header"><span class="project-number">03</span></div>
             <h3>Mavin</h3>
             <p>Modern streetwear & apparel brand storefront with high-impact visual lookbooks, dark mode aesthetic, and fast mobile navigation.</p>
           </div>
-          <a href="https://mavin-9691.myshopify.com" target="_blank" rel="noopener" class="project-link">Visit Live Store ↗</a>
+          <div class="project-footer">
+            <a href="https://mavin-9691.myshopify.com" target="_blank" rel="noopener" class="project-link">Visit Live Store ↗</a>
+          </div>
         </article>
 
-        <article class="card project">
+        <!-- Rashfa Store -->
+        <article class="project" style="background-image: url('https://rashfa-fvdp0hgx.myshopify.com/cdn/shop/files/coffee-banner.jpg');">
+          <div class="project-overlay"></div>
+          <div class="project-header">
+            <span class="project-number">04</span>
+            <span class="pass-badge">Password: 1</span>
+          </div>
           <div>
-            <div class="project-header"><span class="project-number">04</span></div>
             <h3>Rashfa</h3>
             <p>Specialty coffee & drinks brand setup with custom collection tabs, rich product story sections, and social proof sliders.</p>
           </div>
-          <a href="https://rashfa-fvdp0hgx.myshopify.com" target="_blank" rel="noopener" class="project-link">Visit Live Store ↗</a>
+          <div class="project-footer">
+            <a href="https://rashfa-fvdp0hgx.myshopify.com" target="_blank" rel="noopener" class="project-link">Visit Live Store ↗</a>
+          </div>
         </article>
 
-        <article class="card project">
+        <!-- Ricrac Store -->
+        <article class="project" style="background-image: url('https://ricrac-ix4if1dz.myshopify.com/cdn/shop/files/furniture-hero.jpg');">
+          <div class="project-overlay"></div>
+          <div class="project-header">
+            <span class="project-number">05</span>
+            <span class="pass-badge">Password: 1</span>
+          </div>
           <div>
-            <div class="project-header"><span class="project-number">05</span></div>
             <h3>Ricrac</h3>
             <p>Vibrant furniture & home decor store with categorization by room, promotional marquees, and dynamic variant selectors.</p>
           </div>
-          <a href="https://ricrac-ix4if1dz.myshopify.com" target="_blank" rel="noopener" class="project-link">Visit Live Store ↗</a>
+          <div class="project-footer">
+            <a href="https://ricrac-ix4if1dz.myshopify.com" target="_blank" rel="noopener" class="project-link">Visit Live Store ↗</a>
+          </div>
         </article>
 
       </div>
