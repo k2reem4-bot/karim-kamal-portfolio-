@@ -110,7 +110,7 @@
 
     .preview-window{
       width:100%;
-      height:230px;
+      height:280px;
       position:relative;
       overflow:hidden;
       border-bottom:1px solid var(--line);
@@ -118,7 +118,7 @@
       transform-style:preserve-3d;
     }
 
-    .preview-window img{
+    .preview-window picture img{
       width:100%;
       height:100%;
       object-fit:cover;
@@ -126,8 +126,8 @@
       transition:transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
     }
 
-    .project-card-3d:hover .preview-window img{
-      transform:scale(1.1) translateZ(15px);
+    .project-card-3d:hover .preview-window picture img{
+      transform:scale(1.08) translateZ(15px);
     }
 
     .pass-banner{
@@ -194,7 +194,7 @@
     .service p{color:var(--muted);font-size:14px}
     .icon{width:44px;height:44px;border:1px solid var(--line);border-radius:12px;display:grid;place-items:center;color:var(--accent);font-weight:700}
     
-    /* Updated Contact Area (Without Form) */
+    /* Contact Area */
     .contact{
       border:1px solid var(--line);
       border-radius:24px;
@@ -319,7 +319,12 @@
         <article class="project-card-3d">
           <div class="pass-banner">🔑 Password: 1</div>
           <div class="preview-window">
-            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1000&auto=format&fit=crop" alt="Aura Store Home Preview">
+            <picture>
+              <!-- صورة الموبايل (تظهر في الشاشات الصغيرة أقل من 768px) -->
+              <source media="(max-width: 768px)" srcset="aura-mobile.jpg">
+              <!-- صورة الديسكتوب الأساسية -->
+              <img src="fullpage_snapshot_aura-uv3rgwvn_myshopify_com_2026-09-02-19-15-47_2.jpg" alt="Aura Store Preview">
+            </picture>
           </div>
           <div class="project-content">
             <div>
@@ -337,7 +342,10 @@
         <article class="project-card-3d">
           <div class="pass-banner">🔑 Password: 1</div>
           <div class="preview-window">
-            <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=1000&auto=format&fit=crop" alt="Glow Store Home Preview">
+            <picture>
+              <source media="(max-width: 768px)" srcset="glow-mobile.jpg">
+              <img src="fullpage_snapshot_glow-4dbf1yfb_myshopify_com_2026-09-02-19-15-30_2.jpg" alt="Glow Store Preview">
+            </picture>
           </div>
           <div class="project-content">
             <div>
@@ -355,7 +363,10 @@
         <article class="project-card-3d">
           <div class="pass-banner">🔑 Password: 1</div>
           <div class="preview-window">
-            <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1000&auto=format&fit=crop" alt="CRTL Store Home Preview">
+            <picture>
+              <source media="(max-width: 768px)" srcset="crtl-mobile.jpg">
+              <img src="fullpage_snapshot_mavin-9691_myshopify_com_2026-09-02-19-14-51_2.jpg" alt="CRTL Store Preview">
+            </picture>
           </div>
           <div class="project-content">
             <div>
@@ -373,7 +384,10 @@
         <article class="project-card-3d">
           <div class="pass-banner">🔑 Password: 1</div>
           <div class="preview-window">
-            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1000&auto=format&fit=crop" alt="Rashfa Store Home Preview">
+            <picture>
+              <source media="(max-width: 768px)" srcset="rashfa-mobile.jpg">
+              <img src="fullpage_snapshot_rashfa-fvdp0hgx_myshopify_com_2026-09-02-19-15-10_2.jpg" alt="Rashfa Store Preview">
+            </picture>
           </div>
           <div class="project-content">
             <div>
@@ -391,7 +405,10 @@
         <article class="project-card-3d">
           <div class="pass-banner">🔑 Password: 1</div>
           <div class="preview-window">
-            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1000&auto=format&fit=crop" alt="Ricrac Store Home Preview">
+            <picture>
+              <source media="(max-width: 768px)" srcset="ricrac-mobile.jpg">
+              <img src="fullpage_snapshot_ricrac-ix4if1dz_myshopify_com_2026-09-02-19-14-09_2.jpg" alt="Ricrac Store Preview">
+            </picture>
           </div>
           <div class="project-content">
             <div>
@@ -434,7 +451,7 @@
     </div>
   </section>
 
-  <!-- Contact Section without Form -->
+  <!-- Contact Section -->
   <section id="contact">
     <div class="wrap">
       <div class="contact">
