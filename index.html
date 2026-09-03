@@ -65,59 +65,70 @@
     .skills{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
     .tag{padding:8px 14px;border:1px solid var(--line);border-radius:8px;color:#c8d0db;font-size:13px;background:rgba(255,255,255,0.02)}
     
-    /* Dynamic Interactive 3D Projects Grid */
+    /* Advanced 3D Interactive Card Grid */
     .projects{
       display:grid;
       grid-template-columns:repeat(2,1fr);
       gap:36px;
-      perspective:1500px;
+      perspective:1200px;
     }
 
     .project-card-3d{
       position:relative;
       border-radius:24px;
       border:1px solid var(--line);
-      background:rgba(13, 17, 24, 0.85);
-      backdrop-filter: blur(12px);
       overflow:hidden;
       display:flex;
       flex-direction:column;
       transform-style:preserve-3d;
-      transition:transform 0.1s ease-out, box-shadow 0.3s ease, border-color 0.3s ease;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-      will-change: transform;
+      transition:transform 0.15s ease-out, box-shadow 0.4s ease, border-color 0.4s ease;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.7);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
     }
 
-    /* Dynamic Light Beam Overlay */
+    /* Dark Overlay for Reading Contrast */
     .project-card-3d::before {
       content: "";
       position: absolute;
       inset: 0;
+      background: linear-gradient(180deg, rgba(7, 9, 13, 0.4) 0%, rgba(7, 9, 13, 0.92) 65%, rgba(7, 9, 13, 0.98) 100%);
+      z-index: 1;
+      transition: opacity 0.3s ease;
+    }
+
+    /* Glassmorphic Light Reflection Effect */
+    .project-card-3d::after {
+      content: "";
+      position: absolute;
+      inset: 0;
       border-radius: 24px;
-      background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 59, 48, 0.15), transparent 40%);
+      background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.15), transparent 50%);
       pointer-events: none;
-      z-index: 6;
+      z-index: 2;
       opacity: 0;
       transition: opacity 0.3s ease;
     }
 
     .project-card-3d:hover{
-      border-color:rgba(255,59,48,0.7);
-      box-shadow: 0 35px 70px rgba(0, 0, 0, 0.9), 0 0 45px rgba(255, 59, 48, 0.3);
+      border-color:rgba(255,59,48,0.8);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9), 0 0 40px rgba(255, 59, 48, 0.25);
     }
 
-    .project-card-3d:hover::before {
+    .project-card-3d:hover::after {
       opacity: 1;
     }
 
-    /* Embedded Live Homepage Preview */
+    /* Web Preview Window */
     .preview-window{
       width:100%;
-      height:320px;
+      height:280px;
       position:relative;
       overflow:hidden;
       border-bottom:1px solid var(--line);
-      background:#05070a;
+      background:rgba(0,0,0,0.3);
+      z-index: 3;
       transform-style:preserve-3d;
     }
 
@@ -126,7 +137,7 @@
       height:100%;
       border:0;
       pointer-events:auto;
-      transition:transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+      transition:transform 0.4s ease;
     }
 
     .pass-banner{
@@ -145,7 +156,7 @@
       display:flex;
       align-items:center;
       gap:6px;
-      transform:translateZ(40px);
+      transform:translateZ(35px);
       border:1px solid rgba(255,255,255,0.2);
     }
 
@@ -155,19 +166,22 @@
       flex-direction:column;
       flex-grow:1;
       justify-content:space-between;
+      position: relative;
+      z-index: 3;
       transform-style:preserve-3d;
-      transform:translateZ(30px);
+      transform:translateZ(25px);
     }
 
     .project-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
-    .project-number{color:var(--accent);font:700 14px "Space Grotesk";transform:translateZ(15px)}
-    .project-content h3{font:700 26px "Space Grotesk";letter-spacing:-.03em;margin-bottom:8px;color:#fff;transform:translateZ(20px)}
-    .project-content p{color:var(--muted);font-size:14px;line-height:1.6;margin-bottom:20px;transform:translateZ(15px)}
+    .project-number{color:var(--accent);font:700 14px "Space Grotesk";transform:translateZ(10px)}
+    .project-content h3{font:700 26px "Space Grotesk";letter-spacing:-.03em;margin-bottom:8px;color:#fff;transform:translateZ(15px)}
+    .project-content p{color:var(--muted);font-size:14px;line-height:1.6;margin-bottom:20px;transform:translateZ(10px)}
     
     .project-link{
       color:#fff;
-      background:rgba(255,59,48,0.15);
-      border:1px solid rgba(255,59,48,0.4);
+      background:rgba(255,59,48,0.2);
+      backdrop-filter: blur(8px);
+      border:1px solid rgba(255,59,48,0.5);
       padding:11px 18px;
       border-radius:10px;
       font-weight:600;
@@ -178,14 +192,31 @@
       gap:6px;
       transition:.3s;
       width:100%;
-      transform:translateZ(25px);
+      transform:translateZ(20px);
     }
 
     .project-link:hover{
       background:var(--accent);
       color:#fff;
       box-shadow:0 8px 25px rgba(255,59,48,0.5);
-      transform:translateZ(40px) scale(1.02);
+      transform:translateZ(35px) scale(1.02);
+    }
+
+    /* Specific Background Images per Niche */
+    .bg-aura {
+      background-image: url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1200&auto=format&fit=crop');
+    }
+    .bg-glow {
+      background-image: url('https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=1200&auto=format&fit=crop');
+    }
+    .bg-crtl {
+      background-image: url('https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1200&auto=format&fit=crop');
+    }
+    .bg-rashfa {
+      background-image: url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?q=80&w=1200&auto=format&fit=crop');
+    }
+    .bg-ricrac {
+      background-image: url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1200&auto=format&fit=crop');
     }
 
     .services{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
@@ -313,7 +344,7 @@
       </div>
       <div class="projects">
 
-        <article class="project-card-3d">
+        <article class="project-card-3d bg-aura">
           <div class="pass-banner">🔑 Password: 1</div>
           <div class="preview-window">
             <iframe src="https://aura-uv3rgwvn.myshopify.com" title="Aura Live Preview" loading="lazy"></iframe>
@@ -330,7 +361,7 @@
           </div>
         </article>
 
-        <article class="project-card-3d">
+        <article class="project-card-3d bg-glow">
           <div class="pass-banner">🔑 Password: 1</div>
           <div class="preview-window">
             <iframe src="https://glow-4dbf1yfb.myshopify.com" title="Glow Live Preview" loading="lazy"></iframe>
@@ -347,7 +378,7 @@
           </div>
         </article>
 
-        <article class="project-card-3d">
+        <article class="project-card-3d bg-crtl">
           <div class="pass-banner">🔑 Password: 1</div>
           <div class="preview-window">
             <iframe src="https://mavin-9691.myshopify.com" title="CRTL Live Preview" loading="lazy"></iframe>
@@ -364,7 +395,7 @@
           </div>
         </article>
 
-        <article class="project-card-3d">
+        <article class="project-card-3d bg-rashfa">
           <div class="pass-banner">🔑 Password: 1</div>
           <div class="preview-window">
             <iframe src="https://rashfa-fvdp0hgx.myshopify.com" title="Rashfa Live Preview" loading="lazy"></iframe>
@@ -381,7 +412,7 @@
           </div>
         </article>
 
-        <article class="project-card-3d">
+        <article class="project-card-3d bg-ricrac">
           <div class="pass-banner">🔑 Password: 1</div>
           <div class="preview-window">
             <iframe src="https://ricrac-ix4if1dz.myshopify.com" title="Ricrac Live Preview" loading="lazy"></iframe>
@@ -428,69 +459,4 @@
   </section>
 
   <section id="contact">
-    <div class="wrap">
-      <div class="contact">
-        <div class="contact-wrapper">
-          <div class="kicker">04 — Contact</div>
-          <h2>Have a Shopify project in mind?</h2>
-          <p style="color:var(--muted);margin-top:15px">Let’s build a storefront that looks stunning and drives sales. Reach out directly through any of the channels below.</p>
-          
-          <div class="contact-list">
-            <a class="contact-item" href="https://wa.me/201155145452" target="_blank">
-              <span>WhatsApp / Phone</span>
-              011 5514 5452
-            </a>
-            <a class="contact-item" href="mailto:k2reem4@gmail.com">
-              <span>Email</span>
-              k2reem4@gmail.com
-            </a>
-            <a class="contact-item" href="https://linkedin.com/in/karim-kamal-2753623a0" target="_blank" rel="noopener">
-              <span>LinkedIn</span>
-              Karim Kamal
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer class="wrap">
-  <span>© 2026 Karim Kamal. All rights reserved.</span>
-  <span>Shopify Specialist</span>
-</footer>
-
-<script>
-  function toggleMenu() {
-    const links = document.getElementById('navLinks');
-    links.classList.toggle('mobile-active');
-  }
-
-  // Enhanced Interactive 3D Physics Engine
-  const cards = document.querySelectorAll('.project-card-3d');
-
-  cards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      
-      // Dynamic Perspective Angle & Tilt Intensity
-      const rotateX = ((y - centerY) / centerY) * -18;
-      const rotateY = ((x - centerX) / centerX) * 18;
-      
-      card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(12px) translateY(-10px)`;
-      card.style.setProperty('--mouse-x', `${(x / rect.width) * 100}%`);
-      card.style.setProperty('--mouse-y', `${(y / rect.height) * 100}%`);
-    });
-
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = 'rotateX(0deg) rotateY(0deg) translateZ(0px) translateY(0px)';
-    });
-  });
-</script>
-</body>
-</html>
+    <div class="wrap
