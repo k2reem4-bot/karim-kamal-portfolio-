@@ -12,7 +12,7 @@
     :root{
       --bg:#07090d; --panel:#0d1118; --text:#f4f7fb; --muted:#9aa5b5;
       --line:rgba(255,255,255,.09); --accent:#ff3b30; --accent2:#ff6b63;
-      --max:1180px;
+      --max:1240px;
     }
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
@@ -29,8 +29,8 @@
     .menu-btn{display:none;background:none;border:0;color:white;font-size:25px;cursor:pointer}
     
     /* Hero Section */
-    .hero{min-height:100vh;display:grid;align-items:center;padding:150px 0 90px;position:relative;overflow:hidden}
-    .hero:before{content:"";position:absolute;width:650px;height:650px;border-radius:50%;background:radial-gradient(circle,rgba(255,59,48,.18),transparent 68%);right:-180px;top:80px;pointer-events:none}
+    .hero{min-height:90vh;display:grid;align-items:center;padding:150px 0 80px;position:relative;overflow:hidden}
+    .hero:before{content:"";position:absolute;width:650px;height:650px;border-radius:50%;background:radial-gradient(circle,rgba(255,59,48,.15),transparent 68%);right:-180px;top:80px;pointer-events:none}
     .eyebrow{display:inline-flex;gap:9px;align-items:center;border:1px solid var(--line);padding:8px 13px;border-radius:99px;color:#cbd4df;font-size:13px;margin-bottom:25px;background:rgba(255,255,255,0.02)}
     .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 14px var(--accent)}
     h1{font-family:"Space Grotesk";font-size:clamp(48px,7.5vw,90px);line-height:.96;letter-spacing:-.05em;max-width:900px}
@@ -42,10 +42,10 @@
     .btn.primary:hover{background:var(--accent2);transform:translateY(-3px) scale(1.02)}
     .btn:hover{transform:translateY(-2px)}
 
-    section{padding:105px 0}
-    .section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:42px}
+    section{padding:90px 0}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:50px}
     .kicker{color:var(--accent);font-size:12px;text-transform:uppercase;letter-spacing:.15em;font-weight:700;margin-bottom:10px}
-    h2{font-family:"Space Grotesk";font-size:clamp(36px,5vw,58px);line-height:1;letter-spacing:-.05em}
+    h2{font-family:"Space Grotesk";font-size:clamp(36px,5vw,54px);line-height:1;letter-spacing:-.05em}
     .section-head p{color:var(--muted);max-width:430px}
 
     /* General Card */
@@ -65,91 +65,118 @@
     .skills{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
     .tag{padding:8px 14px;border:1px solid var(--line);border-radius:8px;color:#c8d0db;font-size:13px;background:rgba(255,255,255,0.02)}
     
-    /* Projects Grid */
+    /* Behance Style Showcase Layout */
     .projects{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:36px;
-    }
-
-    .project-card{
-      position:relative;
-      border-radius:20px;
-      border:1px solid var(--line);
-      background:#0c1017;
-      overflow:hidden;
       display:flex;
       flex-direction:column;
-      transition:transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      gap:60px;
     }
 
-    .project-card:hover{
-      transform:translateY(-6px);
-      border-color:var(--accent);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.8), 0 0 30px rgba(255, 59, 48, 0.15);
+    .project-case{
+      background:#0c1017;
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:40px;
+      transition:border-color 0.3s ease;
     }
 
-    /* Browser Top Bar */
-    .browser-header{
-      height:38px;
-      background:#161c26;
+    .project-case:hover{
+      border-color:rgba(255,59,48,0.4);
+    }
+
+    .project-info{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      margin-bottom:30px;
+      flex-wrap:wrap;
+      gap:20px;
+    }
+
+    .project-title-area h3{
+      font-family:"Space Grotesk";
+      font-size:32px;
+      letter-spacing:-.03em;
+      color:#fff;
+      margin-top:6px;
+    }
+
+    .project-title-area p{
+      color:var(--muted);
+      font-size:15px;
+      max-width:600px;
+      margin-top:8px;
+    }
+
+    .project-tag-num{
+      background:rgba(255,59,48,0.1);
+      color:var(--accent);
+      border:1px solid rgba(255,59,48,0.2);
+      padding:6px 14px;
+      border-radius:30px;
+      font-size:12px;
+      font-weight:700;
+      font-family:"Space Grotesk";
+    }
+
+    /* Behance Grid Showcase: Desktop + Mobile Frames */
+    .showcase-grid{
+      display:grid;
+      grid-template-columns: 2.5fr 1fr;
+      gap:24px;
+      align-items:center;
+    }
+
+    .device-frame{
+      background:#121721;
+      border:1px solid var(--line);
+      border-radius:16px;
+      overflow:hidden;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    }
+
+    .browser-bar{
+      height:32px;
+      background:#181f2c;
       border-bottom:1px solid var(--line);
       display:flex;
       align-items:center;
-      padding:0 16px;
-      gap:8px;
+      padding:0 12px;
+      gap:6px;
     }
-    .dot-btn{width:10px;height:10px;border-radius:50%;display:inline-block}
-    .dot-red{background:#ff5f56}
-    .dot-yellow{background:#ffbd2e}
-    .dot-green{background:#27c93f}
+    .dot-btn{width:8px;height:8px;border-radius:50%}
+    .d-red{background:#ff5f56}
+    .d-yellow{background:#ffbd2e}
+    .d-green{background:#27c93f}
 
-    /* High Definition Image Window */
-    .preview-window{
+    .img-container{
       width:100%;
-      height:360px;
-      position:relative;
-      overflow:hidden;
+      max-height:500px;
+      overflow-y:auto;
       background:#05070a;
     }
 
-    .preview-window img{
+    .img-container::-webkit-scrollbar {
+      width: 5px;
+    }
+    .img-container::-webkit-scrollbar-thumb {
+      background: #2a3447;
+      border-radius: 10px;
+    }
+
+    .img-container img{
       width:100%;
       height:auto;
       display:block;
       image-rendering: -webkit-optimize-contrast;
-      image-rendering: crisp-edges;
-      transition:transform 4s cubic-bezier(0.25, 1, 0.5, 1);
     }
 
-    .project-card:hover .preview-window img{
-      transform:translateY(calc(-100% + 360px));
+    .mobile-frame .img-container{
+      max-height:500px;
     }
 
-    /* Responsive Image Display Control */
-    .mobile-img {
-      display: none !important;
-    }
-    .desktop-img {
-      display: block !important;
-    }
-
-    .project-content{
-      padding:28px;
-      display:flex;
-      flex-direction:column;
-      flex-grow:1;
-      justify-content:space-between;
-      background:#0c1017;
-      border-top:1px solid var(--line);
-    }
-
-    .project-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
-    .project-number{color:var(--accent);font:700 13px "Space Grotesk"}
-    .project-content h3{font:700 24px "Space Grotesk";letter-spacing:-.03em;margin-bottom:8px;color:#fff}
-    .project-content p{color:var(--muted);font-size:14px;line-height:1.6}
-
-    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .service{background:#0c1017}
     .service h3{font:600 20px "Space Grotesk";margin:18px 0 9px}
     .service p{color:var(--muted);font-size:14px}
     .icon{width:44px;height:44px;border:1px solid var(--line);border-radius:12px;display:grid;place-items:center;color:var(--accent);font-weight:700}
@@ -161,9 +188,7 @@
       padding:50px;
       background:radial-gradient(circle at 80% 20%,rgba(255,59,48,.1),transparent 40%),#0c1016;
     }
-    .contact-wrapper{
-      max-width:650px;
-    }
+    .contact-wrapper{max-width:650px}
     .contact-list{
       display:grid;
       grid-template-columns:repeat(3, 1fr);
@@ -197,30 +222,16 @@
     
     footer{border-top:1px solid var(--line);padding:25px 0;color:#667181;font-size:12px;display:flex;justify-content:space-between}
 
-    /* Mobile Screen Adjustments */
-    @media(max-width:800px){
+    /* Responsive */
+    @media(max-width:900px){
       .links{display:none;position:absolute;top:76px;left:0;right:0;background:var(--panel);flex-direction:column;padding:20px;border-bottom:1px solid var(--line);gap:18px}
       .links.mobile-active{display:flex}
       .menu-btn{display:block}
       .about-grid{grid-template-columns:1fr}
-      .projects,.services{grid-template-columns:1fr}
+      .services{grid-template-columns:1fr}
       .contact-list{grid-template-columns:1fr}
-      .section-head{display:block}.section-head p{margin-top:15px}
-      .hero p{font-size:17px}
-      .contact{padding:30px 20px}
-
-      .mobile-img {
-        display: block !important;
-      }
-      .desktop-img {
-        display: none !important;
-      }
-      .preview-window {
-        height: 300px;
-      }
-      .project-card:hover .preview-window img{
-        transform:translateY(calc(-100% + 300px));
-      }
+      .showcase-grid{grid-template-columns:1fr}
+      .project-case{padding:20px}
     }
   </style>
 </head>
@@ -246,7 +257,7 @@
       <p>I’m Karim Kamal, a Shopify Specialist focused on building clean, fast, and high-converting ecommerce experiences that scale your business.</p>
       <div class="actions">
         <a class="btn primary" href="#contact">Let's work together ↗</a>
-        <a class="btn" href="#projects">View projects</a>
+        <a class="btn" href="#projects">View showcase</a>
       </div>
     </div>
   </section>
@@ -280,124 +291,104 @@
     </div>
   </section>
 
-  <!-- Projects Showcase -->
+  <!-- Behance Style Showcase Section -->
   <section id="projects">
     <div class="wrap">
       <div class="section-head">
-        <div><div class="kicker">02 — Selected Work</div><h2>Projects that<br>drive results.</h2></div>
-        <p>A showcase of live Shopify stores, custom Liquid themes, and high-converting storefronts I've built.</p>
+        <div><div class="kicker">02 — Case Studies</div><h2>Projects showcase.</h2></div>
+        <p>A detailed look into high-converting storefronts, featuring desktop experience and mobile responsive layouts.</p>
       </div>
+      
       <div class="projects">
 
-        <!-- Project 1: Aura -->
-        <article class="project-card">
-          <div class="browser-header">
-            <span class="dot-btn dot-red"></span>
-            <span class="dot-btn dot-yellow"></span>
-            <span class="dot-btn dot-green"></span>
-          </div>
-          <div class="preview-window">
-            <img src="aura-desktop.jpg" alt="Aura Desktop Preview" class="desktop-img">
-            <img src="aura-mobile.jpg" alt="Aura Mobile Preview" class="mobile-img">
-          </div>
-          <div class="project-content">
-            <div>
-              <div class="project-header">
-                <span class="project-number">PROJECT 01</span>
-              </div>
-              <h3>Aura</h3>
+        <!-- Project 1 -->
+        <div class="project-case">
+          <div class="project-info">
+            <div class="project-title-area">
+              <span class="project-tag-num">CASE 01</span>
+              <h3>Aura — Modest Fashion Store</h3>
               <p>Elegant modest fashion & abaya storefront featuring sleek collection layouts, custom banner sections, and structured product grids.</p>
             </div>
           </div>
-        </article>
-
-        <!-- Project 2: Glow -->
-        <article class="project-card">
-          <div class="browser-header">
-            <span class="dot-btn dot-red"></span>
-            <span class="dot-btn dot-yellow"></span>
-            <span class="dot-btn dot-green"></span>
-          </div>
-          <div class="preview-window">
-            <img src="glow-desktop.jpg" alt="Glow Desktop Preview" class="desktop-img">
-            <img src="glow-mobile.jpg" alt="Glow Mobile Preview" class="mobile-img">
-          </div>
-          <div class="project-content">
-            <div>
-              <div class="project-header">
-                <span class="project-number">PROJECT 02</span>
+          <div class="showcase-grid">
+            <!-- Desktop Mockup -->
+            <div class="device-frame desktop-frame">
+              <div class="browser-bar">
+                <span class="dot-btn d-red"></span><span class="dot-btn d-yellow"></span><span class="dot-btn d-green"></span>
               </div>
-              <h3>Glow</h3>
+              <div class="img-container">
+                <img src="aura-desktop.jpg" alt="Aura Desktop View">
+              </div>
+            </div>
+            <!-- Mobile Mockup -->
+            <div class="device-frame mobile-frame">
+              <div class="browser-bar">
+                <span class="dot-btn d-red"></span><span class="dot-btn d-yellow"></span><span class="dot-btn d-green"></span>
+              </div>
+              <div class="img-container">
+                <img src="aura-mobile.jpg" alt="Aura Mobile View">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-case">
+          <div class="project-info">
+            <div class="project-title-area">
+              <span class="project-tag-num">CASE 02</span>
+              <h3>Glow — Skincare Store</h3>
               <p>Beauty & skincare Shopify store built with interactive featured product showcases, custom swatch selectors, and store locator UI.</p>
             </div>
           </div>
-        </article>
-
-        <!-- Project 3: CRTL -->
-        <article class="project-card">
-          <div class="browser-header">
-            <span class="dot-btn dot-red"></span>
-            <span class="dot-btn dot-yellow"></span>
-            <span class="dot-btn dot-green"></span>
-          </div>
-          <div class="preview-window">
-            <img src="crtl-desktop.jpg" alt="CRTL Desktop Preview" class="desktop-img">
-            <img src="crtl-mobile.jpg" alt="CRTL Mobile Preview" class="mobile-img">
-          </div>
-          <div class="project-content">
-            <div>
-              <div class="project-header">
-                <span class="project-number">PROJECT 03</span>
+          <div class="showcase-grid">
+            <div class="device-frame desktop-frame">
+              <div class="browser-bar">
+                <span class="dot-btn d-red"></span><span class="dot-btn d-yellow"></span><span class="dot-btn d-green"></span>
               </div>
-              <h3>CRTL</h3>
+              <div class="img-container">
+                <img src="glow-desktop.jpg" alt="Glow Desktop View">
+              </div>
+            </div>
+            <div class="device-frame mobile-frame">
+              <div class="browser-bar">
+                <span class="dot-btn d-red"></span><span class="dot-btn d-yellow"></span><span class="dot-btn d-green"></span>
+              </div>
+              <div class="img-container">
+                <img src="glow-mobile.jpg" alt="Glow Mobile View">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-case">
+          <div class="project-info">
+            <div class="project-title-area">
+              <span class="project-tag-num">CASE 03</span>
+              <h3>CRTL — Apparel Brand</h3>
               <p>Modern streetwear & apparel brand storefront with high-impact visual lookbooks, dark mode aesthetic, and fast mobile navigation.</p>
             </div>
           </div>
-        </article>
-
-        <!-- Project 4: Rashfa -->
-        <article class="project-card">
-          <div class="browser-header">
-            <span class="dot-btn dot-red"></span>
-            <span class="dot-btn dot-yellow"></span>
-            <span class="dot-btn dot-green"></span>
-          </div>
-          <div class="preview-window">
-            <img src="rashfa-desktop.jpg" alt="Rashfa Desktop Preview" class="desktop-img">
-            <img src="rashfa-mobile.jpg" alt="Rashfa Mobile Preview" class="mobile-img">
-          </div>
-          <div class="project-content">
-            <div>
-              <div class="project-header">
-                <span class="project-number">PROJECT 04</span>
+          <div class="showcase-grid">
+            <div class="device-frame desktop-frame">
+              <div class="browser-bar">
+                <span class="dot-btn d-red"></span><span class="dot-btn d-yellow"></span><span class="dot-btn d-green"></span>
               </div>
-              <h3>Rashfa</h3>
-              <p>Specialty coffee & drinks brand setup with custom collection tabs, rich product story sections, and social proof sliders.</p>
+              <div class="img-container">
+                <img src="crtl-desktop.jpg" alt="CRTL Desktop View">
+              </div>
+            </div>
+            <div class="device-frame mobile-frame">
+              <div class="browser-bar">
+                <span class="dot-btn d-red"></span><span class="dot-btn d-yellow"></span><span class="dot-btn d-green"></span>
+              </div>
+              <div class="img-container">
+                <img src="crtl-mobile.jpg" alt="CRTL Mobile View">
+              </div>
             </div>
           </div>
-        </article>
-
-        <!-- Project 5: Ricrac -->
-        <article class="project-card">
-          <div class="browser-header">
-            <span class="dot-btn dot-red"></span>
-            <span class="dot-btn dot-yellow"></span>
-            <span class="dot-btn dot-green"></span>
-          </div>
-          <div class="preview-window">
-            <img src="ricrac-desktop.jpg" alt="Ricrac Desktop Preview" class="desktop-img">
-            <img src="ricrac-mobile.jpg" alt="Ricrac Mobile Preview" class="mobile-img">
-          </div>
-          <div class="project-content">
-            <div>
-              <div class="project-header">
-                <span class="project-number">PROJECT 05</span>
-              </div>
-              <h3>Ricrac</h3>
-              <p>Vibrant furniture & home decor store with categorization by room, promotional marquees, and dynamic variant selectors.</p>
-            </div>
-          </div>
-        </article>
+        </div>
 
       </div>
     </div>
