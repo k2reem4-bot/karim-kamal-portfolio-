@@ -382,4 +382,131 @@
 
         <article class="project-card-3d">
           <div class="pass-banner">🔑 Password: 1</div>
-          <div class="preview-
+          <div class="preview-window">
+            <img src="https://i.ibb.co/qLvrZV9d/fullpage-snapshot-rashfa-fvdp0hgx-myshopify-com-2026-09-02-19-15-10.jpg" alt="Rashfa HD Preview" loading="eager">
+          </div>
+          <div class="project-content">
+            <div>
+              <div class="project-header">
+                <span class="project-number">PROJECT 04</span>
+              </div>
+              <h3>Rashfa</h3>
+              <p>Specialty coffee & drinks brand setup with custom collection tabs, rich product story sections, and social proof sliders.</p>
+            </div>
+            <a href="https://rashfa-fvdp0hgx.myshopify.com" target="_blank" rel="noopener" class="project-link">Visit Live Store ↗</a>
+          </div>
+        </article>
+
+        <article class="project-card-3d">
+          <div class="pass-banner">🔑 Password: 1</div>
+          <div class="preview-window">
+            <img src="https://i.ibb.co/MxKF0KYL/fullpage-snapshot-ricrac-ix4if1dz-myshopify-com-2026-09-02-19-14-09.jpg" alt="Ricrac HD Preview" loading="eager">
+          </div>
+          <div class="project-content">
+            <div>
+              <div class="project-header">
+                <span class="project-number">PROJECT 05</span>
+              </div>
+              <h3>Ricrac</h3>
+              <p>Vibrant furniture & home decor store with categorization by room, promotional marquees, and dynamic variant selectors.</p>
+            </div>
+            <a href="https://ricrac-ix4if1dz.myshopify.com" target="_blank" rel="noopener" class="project-link">Visit Live Store ↗</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="kicker">03 — Services</div><h2>What I can<br>do for you.</h2></div>
+      </div>
+      <div class="services">
+        <div class="card service">
+          <div class="icon">01</div>
+          <h3>Full Store Setup</h3>
+          <p>End-to-end Shopify store creation, configuration, payment gateway setup, and domain setup.</p>
+        </div>
+        <div class="card service">
+          <div class="icon">02</div>
+          <h3>Custom Liquid & Themes</h3>
+          <p>Customizing existing themes or building bespoke Liquid sections tailor-made for your brand.</p>
+        </div>
+        <div class="card service">
+          <div class="icon">03</div>
+          <h3>CRO & Speed Audit</h3>
+          <p>Optimizing page load speed, UX layout, and mobile funnel to boost your store conversion rates.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact">
+        <div class="contact-wrapper">
+          <div class="kicker">04 — Contact</div>
+          <h2>Have a Shopify project in mind?</h2>
+          <p style="color:var(--muted);margin-top:15px">Let’s build a storefront that looks stunning and drives sales. Reach out directly through any of the channels below.</p>
+          
+          <div class="contact-list">
+            <a class="contact-item" href="https://wa.me/201155145452" target="_blank">
+              <span>WhatsApp / Phone</span>
+              011 5514 5452
+            </a>
+            <a class="contact-item" href="mailto:k2reem4@gmail.com">
+              <span>Email</span>
+              k2reem4@gmail.com
+            </a>
+            <a class="contact-item" href="https://linkedin.com/in/karim-kamal-2753623a0" target="_blank" rel="noopener">
+              <span>LinkedIn</span>
+              Karim Kamal
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <span>© 2026 Karim Kamal. All rights reserved.</span>
+  <span>Shopify Specialist</span>
+</footer>
+
+<script>
+  function toggleMenu() {
+    const links = document.getElementById('navLinks');
+    links.classList.toggle('mobile-active');
+  }
+
+  // Advanced Volumetric 3D Parallax & Mouse Light Engine
+  const cards = document.querySelectorAll('.project-card-3d');
+
+  cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      
+      // Multi-axis rotation calculation
+      const rotateX = ((y - centerY) / centerY) * -14;
+      const rotateY = ((x - centerX) / centerX) * 14;
+      
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(15px) translateY(-5px)`;
+      card.style.setProperty('--mouse-x', `${(x / rect.width) * 100}%`);
+      card.style.setProperty('--mouse-y', `${(y / rect.height) * 100}%`);
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px) translateY(0px)';
+    });
+  });
+</script>
+</body>
+</html>
