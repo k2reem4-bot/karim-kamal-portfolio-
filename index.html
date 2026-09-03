@@ -65,7 +65,7 @@
     .skills{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
     .tag{padding:8px 14px;border:1px solid var(--line);border-radius:8px;color:#c8d0db;font-size:13px;background:rgba(255,255,255,0.02)}
     
-    /* Grid System */
+    /* Projects Grid */
     .projects{
       display:grid;
       grid-template-columns:repeat(2,1fr);
@@ -89,7 +89,7 @@
       box-shadow: 0 20px 40px rgba(0,0,0,0.8), 0 0 30px rgba(255, 59, 48, 0.15);
     }
 
-    /* Browser Mockup Top Bar */
+    /* Browser Top Bar */
     .browser-header{
       height:38px;
       background:#161c26;
@@ -103,20 +103,11 @@
     .dot-red{background:#ff5f56}
     .dot-yellow{background:#ffbd2e}
     .dot-green{background:#27c93f}
-    .browser-url{
-      background:#0b0e14;
-      border-radius:6px;
-      padding:2px 12px;
-      font-size:11px;
-      color:var(--muted);
-      margin-left:auto;
-      border:1px solid var(--line);
-    }
 
-    /* Ultra HD Image Container with Smooth Scroll Effect */
+    /* High Definition Image Window */
     .preview-window{
       width:100%;
-      height:320px;
+      height:360px;
       position:relative;
       overflow:hidden;
       background:#05070a;
@@ -126,29 +117,21 @@
       width:100%;
       height:auto;
       display:block;
-      /* Max Crispness Rendering */
       image-rendering: -webkit-optimize-contrast;
       image-rendering: crisp-edges;
       transition:transform 4s cubic-bezier(0.25, 1, 0.5, 1);
     }
 
     .project-card:hover .preview-window img{
-      transform:translateY(calc(-100% + 320px));
+      transform:translateY(calc(-100% + 360px));
     }
 
-    .pass-banner{
-      position:absolute;
-      top:50px;
-      right:15px;
-      z-index:10;
-      background:var(--accent);
-      color:#fff;
-      font-weight:700;
-      font-size:12px;
-      padding:5px 12px;
-      border-radius:30px;
-      box-shadow:0 6px 20px rgba(255,59,48,0.4);
-      letter-spacing:0.03em;
+    /* Responsive Image Display Control */
+    .mobile-img {
+      display: none !important;
+    }
+    .desktop-img {
+      display: block !important;
     }
 
     .project-content{
@@ -164,29 +147,7 @@
     .project-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
     .project-number{color:var(--accent);font:700 13px "Space Grotesk"}
     .project-content h3{font:700 24px "Space Grotesk";letter-spacing:-.03em;margin-bottom:8px;color:#fff}
-    .project-content p{color:var(--muted);font-size:14px;line-height:1.6;margin-bottom:20px}
-    
-    .project-link{
-      color:#fff;
-      background:rgba(255,59,48,0.15);
-      border:1px solid rgba(255,59,48,0.4);
-      padding:11px 18px;
-      border-radius:10px;
-      font-weight:600;
-      font-size:14px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:6px;
-      transition:.3s;
-      width:100%;
-    }
-
-    .project-link:hover{
-      background:var(--accent);
-      color:#fff;
-      box-shadow:0 8px 25px rgba(255,59,48,0.4);
-    }
+    .project-content p{color:var(--muted);font-size:14px;line-height:1.6}
 
     .services{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
     .service h3{font:600 20px "Space Grotesk";margin:18px 0 9px}
@@ -236,6 +197,7 @@
     
     footer{border-top:1px solid var(--line);padding:25px 0;color:#667181;font-size:12px;display:flex;justify-content:space-between}
 
+    /* Mobile Screen Adjustments */
     @media(max-width:800px){
       .links{display:none;position:absolute;top:76px;left:0;right:0;background:var(--panel);flex-direction:column;padding:20px;border-bottom:1px solid var(--line);gap:18px}
       .links.mobile-active{display:flex}
@@ -246,6 +208,20 @@
       .section-head{display:block}.section-head p{margin-top:15px}
       .hero p{font-size:17px}
       .contact{padding:30px 20px}
+
+      /* Switch to Mobile Images automatically on mobile view */
+      .mobile-img {
+        display: block !important;
+      }
+      .desktop-img {
+        display: none !important;
+      }
+      .preview-window {
+        height: 300px;
+      }
+      .project-card:hover .preview-window img{
+        transform:translateY(calc(-100% + 300px));
+      }
     }
   </style>
 </head>
@@ -305,7 +281,7 @@
     </div>
   </section>
 
-  <!-- Projects Section with Vector Browser Mockups -->
+  <!-- Projects Showcase -->
   <section id="projects">
     <div class="wrap">
       <div class="section-head">
@@ -320,11 +296,12 @@
             <span class="dot-btn dot-red"></span>
             <span class="dot-btn dot-yellow"></span>
             <span class="dot-btn dot-green"></span>
-            <span class="browser-url">aura-store.myshopify.com</span>
           </div>
-          <div class="pass-banner">🔑 Password: 1</div>
           <div class="preview-window">
-            <img src="https://i.ibb.co/HvLtwVX/fullpage-snapshot-aura-uv3rgwvn-myshopify-com-2026-09-02-19-15-47.jpg" alt="Aura Preview">
+            <!-- Desktop Image -->
+            <img src="https://i.ibb.co/HvLtwVX/fullpage-snapshot-aura-uv3rgwvn-myshopify-com-2026-09-02-19-15-47.jpg" alt="Aura Desktop Preview" class="desktop-img">
+            <!-- Mobile Image (ضع رابط صورة الموبايل هنا) -->
+            <img src="https://i.ibb.co/HvLtwVX/fullpage-snapshot-aura-uv3rgwvn-myshopify-com-2026-09-02-19-15-47.jpg" alt="Aura Mobile Preview" class="mobile-img">
           </div>
           <div class="project-content">
             <div>
@@ -334,7 +311,6 @@
               <h3>Aura</h3>
               <p>Elegant modest fashion & abaya storefront featuring sleek collection layouts, custom banner sections, and structured product grids.</p>
             </div>
-            <a href="https://aura-uv3rgwvn.myshopify.com" target="_blank" rel="noopener" class="project-link">Visit Live Store ↗</a>
           </div>
         </article>
 
@@ -344,11 +320,12 @@
             <span class="dot-btn dot-red"></span>
             <span class="dot-btn dot-yellow"></span>
             <span class="dot-btn dot-green"></span>
-            <span class="browser-url">glow-skincare.myshopify.com</span>
           </div>
-          <div class="pass-banner">🔑 Password: 1</div>
           <div class="preview-window">
-            <img src="https://i.ibb.co/jZyXdgd0/fullpage-snapshot-glow-4dbf1yfb-myshopify-com-2026-09-02-19-15-30.jpg" alt="Glow Preview">
+            <!-- Desktop Image -->
+            <img src="https://i.ibb.co/jZyXdgd0/fullpage-snapshot-glow-4dbf1yfb-myshopify-com-2026-09-02-19-15-30.jpg" alt="Glow Desktop Preview" class="desktop-img">
+            <!-- Mobile Image -->
+            <img src="https://i.ibb.co/jZyXdgd0/fullpage-snapshot-glow-4dbf1yfb-myshopify-com-2026-09-02-19-15-30.jpg" alt="Glow Mobile Preview" class="mobile-img">
           </div>
           <div class="project-content">
             <div>
@@ -358,7 +335,6 @@
               <h3>Glow</h3>
               <p>Beauty & skincare Shopify store built with interactive featured product showcases, custom swatch selectors, and store locator UI.</p>
             </div>
-            <a href="https://glow-4dbf1yfb.myshopify.com" target="_blank" rel="noopener" class="project-link">Visit Live Store ↗</a>
           </div>
         </article>
 
@@ -368,11 +344,12 @@
             <span class="dot-btn dot-red"></span>
             <span class="dot-btn dot-yellow"></span>
             <span class="dot-btn dot-green"></span>
-            <span class="browser-url">crtl-apparel.myshopify.com</span>
           </div>
-          <div class="pass-banner">🔑 Password: 1</div>
           <div class="preview-window">
-            <img src="https://i.ibb.co/jkX4wv58/fullpage-snapshot-mavin-9691-myshopify-com-2026-09-02-19-14-51.jpg" alt="CRTL Preview">
+            <!-- Desktop Image -->
+            <img src="https://i.ibb.co/jkX4wv58/fullpage-snapshot-mavin-9691-myshopify-com-2026-09-02-19-14-51.jpg" alt="CRTL Desktop Preview" class="desktop-img">
+            <!-- Mobile Image -->
+            <img src="https://i.ibb.co/jkX4wv58/fullpage-snapshot-mavin-9691-myshopify-com-2026-09-02-19-14-51.jpg" alt="CRTL Mobile Preview" class="mobile-img">
           </div>
           <div class="project-content">
             <div>
@@ -382,7 +359,6 @@
               <h3>CRTL</h3>
               <p>Modern streetwear & apparel brand storefront with high-impact visual lookbooks, dark mode aesthetic, and fast mobile navigation.</p>
             </div>
-            <a href="https://mavin-9691.myshopify.com" target="_blank" rel="noopener" class="project-link">Visit Live Store ↗</a>
           </div>
         </article>
 
@@ -392,11 +368,12 @@
             <span class="dot-btn dot-red"></span>
             <span class="dot-btn dot-yellow"></span>
             <span class="dot-btn dot-green"></span>
-            <span class="browser-url">rashfa-coffee.myshopify.com</span>
           </div>
-          <div class="pass-banner">🔑 Password: 1</div>
           <div class="preview-window">
-            <img src="https://i.ibb.co/qLvrZV9d/fullpage-snapshot-rashfa-fvdp0hgx-myshopify-com-2026-09-02-19-15-10.jpg" alt="Rashfa Preview">
+            <!-- Desktop Image -->
+            <img src="https://i.ibb.co/qLvrZV9d/fullpage-snapshot-rashfa-fvdp0hgx-myshopify-com-2026-09-02-19-15-10.jpg" alt="Rashfa Desktop Preview" class="desktop-img">
+            <!-- Mobile Image -->
+            <img src="https://i.ibb.co/qLvrZV9d/fullpage-snapshot-rashfa-fvdp0hgx-myshopify-com-2026-09-02-19-15-10.jpg" alt="Rashfa Mobile Preview" class="mobile-img">
           </div>
           <div class="project-content">
             <div>
@@ -406,7 +383,6 @@
               <h3>Rashfa</h3>
               <p>Specialty coffee & drinks brand setup with custom collection tabs, rich product story sections, and social proof sliders.</p>
             </div>
-            <a href="https://rashfa-fvdp0hgx.myshopify.com" target="_blank" rel="noopener" class="project-link">Visit Live Store ↗</a>
           </div>
         </article>
 
@@ -416,11 +392,12 @@
             <span class="dot-btn dot-red"></span>
             <span class="dot-btn dot-yellow"></span>
             <span class="dot-btn dot-green"></span>
-            <span class="browser-url">ricrac-home.myshopify.com</span>
           </div>
-          <div class="pass-banner">🔑 Password: 1</div>
           <div class="preview-window">
-            <img src="https://i.ibb.co/MxKF0KYL/fullpage-snapshot-ricrac-ix4if1dz-myshopify-com-2026-09-02-19-14-09.jpg" alt="Ricrac Preview">
+            <!-- Desktop Image -->
+            <img src="https://i.ibb.co/MxKF0KYL/fullpage-snapshot-ricrac-ix4if1dz-myshopify-com-2026-09-02-19-14-09.jpg" alt="Ricrac Desktop Preview" class="desktop-img">
+            <!-- Mobile Image -->
+            <img src="https://i.ibb.co/MxKF0KYL/fullpage-snapshot-ricrac-ix4if1dz-myshopify-com-2026-09-02-19-14-09.jpg" alt="Ricrac Mobile Preview" class="mobile-img">
           </div>
           <div class="project-content">
             <div>
@@ -430,7 +407,6 @@
               <h3>Ricrac</h3>
               <p>Vibrant furniture & home decor store with categorization by room, promotional marquees, and dynamic variant selectors.</p>
             </div>
-            <a href="https://ricrac-ix4if1dz.myshopify.com" target="_blank" rel="noopener" class="project-link">Visit Live Store ↗</a>
           </div>
         </article>
 
