@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karim Kamal - Portfolio</title>
+    <title>Karim Kamal - UI/UX Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -14,7 +14,7 @@
             font-family: 'Cairo', sans-serif;
         }
         body {
-            background-color: #0b0b0b;
+            background-color: #0d0d0d;
             color: #f3f4f6;
             line-height: 1.6;
         }
@@ -23,7 +23,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px 8%;
-            background: rgba(11, 11, 11, 0.95);
+            background: rgba(13, 13, 13, 0.95);
             position: fixed;
             width: 100%;
             top: 0;
@@ -54,7 +54,7 @@
             align-items: center;
             text-align: center;
             padding: 0 20px;
-            background: radial-gradient(circle at center, #1a1a1a 0%, #0b0b0b 70%);
+            background: radial-gradient(circle at center, #1a1a1a 0%, #0d0d0d 70%);
         }
         .hero h1 {
             font-size: 3.5rem;
@@ -85,65 +85,59 @@
             transform: translateY(-2px);
         }
         section {
-            padding: 100px 8%;
+            padding: 80px 8%;
         }
         .section-title {
             text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 50px;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
             color: #ffffff;
             position: relative;
         }
         .section-title::after {
             content: '';
             display: block;
-            width: 50px;
+            width: 60px;
             height: 3px;
             background: #d4af37;
-            margin: 10px auto 0;
+            margin: 15px auto 0;
             border-radius: 2px;
         }
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-        }
-        .project-card {
+        /* Behance Style Long Presentation Showcase */
+        .project-showcase {
             background: #141414;
             border: 1px solid #222;
-            border-radius: 12px;
+            border-radius: 16px;
+            margin-bottom: 60px;
             overflow: hidden;
-            transition: 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
-        .project-card:hover {
-            transform: translateY(-8px);
-            border-color: #d4af37;
+        .project-header-info {
+            padding: 30px 40px;
+            border-bottom: 1px solid #222;
+            background: #181818;
         }
-        .project-card a {
-            display: block;
-            overflow: hidden;
-        }
-        .project-card img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.3s ease;
-        }
-        .project-card:hover img {
-            transform: scale(1.05);
-        }
-        .project-info {
-            padding: 20px;
-        }
-        .project-info h3 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
+        .project-header-info h3 {
+            font-size: 1.8rem;
             color: #fff;
+            margin-bottom: 8px;
         }
-        .project-info p {
+        .project-header-info p {
             color: #9ca3af;
-            font-size: 0.9rem;
+            font-size: 1.05rem;
+        }
+        .full-page-mockup {
+            width: 100%;
+            max-height: 800px; /* يجعل الصورة قابلة للتمرير أو العرض الطولى الفخم */
+            overflow-y: auto;
+            background: #000;
+            display: flex;
+            justify-content: center;
+        }
+        .full-page-mockup img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
         .contact-box {
             background: #141414;
@@ -198,59 +192,68 @@
     </section>
 
     <section id="projects">
-        <h2 class="section-title">Portfolio Projects</h2>
-        <div class="projects-grid">
-            <!-- Project 1: Aura -->
-            <div class="project-card">
-                <a href="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1600&q=90" target="_blank">
-                    <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=600&q=80" alt="Aura Scented Story">
-                </a>
-                <div class="project-info">
-                    <h3>Aura Scented Story</h3>
-                    <p>Luxury e-commerce interface design with elegant theme aesthetics.</p>
-                </div>
+        <h2 class="section-title">Featured Projects</h2>
+
+        <!-- Project 1: Aura Scented Story -->
+        <div class="project-showcase">
+            <div class="project-header-info">
+                <h3>Aura Scented Story</h3>
+                <p>Full E-commerce UI/UX Design & Layout Presentation</p>
             </div>
-            <!-- Project 2: CTRL -->
-            <div class="project-card">
-                <a href="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1600&q=90" target="_blank">
-                    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=600&q=80" alt="CTRL">
-                </a>
-                <div class="project-info">
-                    <h3>CTRL</h3>
-                    <p>Modern streetwear and apparel e-commerce website design.</p>
-                </div>
-            </div>
-            <!-- Project 3: Glow -->
-            <div class="project-card">
-                <a href="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1600&q=90" target="_blank">
-                    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80" alt="Glow Cosmetics">
-                </a>
-                <div class="project-info">
-                    <h3>Glow Cosmetics</h3>
-                    <p>Modern beauty and cosmetics store layout design.</p>
-                </div>
-            </div>
-            <!-- Project 4: Rashfa -->
-            <div class="project-card">
-                <a href="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=1600&q=90" target="_blank">
-                    <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=600&q=80" alt="Rashfa Coffee">
-                </a>
-                <div class="project-info">
-                    <h3>Rashfa Coffee</h3>
-                    <p>Specialty coffee brand shop design with warm visual style.</p>
-                </div>
-            </div>
-            <!-- Project 5: Ricrac -->
-            <div class="project-card">
-                <a href="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=90" target="_blank">
-                    <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=600&q=80" alt="Ricrac Furniture">
-                </a>
-                <div class="project-info">
-                    <h3>Ricrac Furniture</h3>
-                    <p>Interior design & modern furniture online store layout.</p>
-                </div>
+            <div class="full-page-mockup">
+                <!-- ضع اسم ملف صورة موقع أورا هنا بدلاً من الرابط التجريبي -->
+                <img src="aura-image.jpg" alt="Aura Scented Story Full View">
             </div>
         </div>
+
+        <!-- Project 2: CTRL -->
+        <div class="project-showcase">
+            <div class="project-header-info">
+                <h3>CTRL</h3>
+                <p>Streetwear Brand E-commerce Website Design</p>
+            </div>
+            <div class="full-page-mockup">
+                <!-- ضع اسم ملف صورة موقع CTRL هنا -->
+                <img src="ctrl-image.jpg" alt="CTRL Full View">
+            </div>
+        </div>
+
+        <!-- Project 3: Glow Cosmetics -->
+        <div class="project-showcase">
+            <div class="project-header-info">
+                <h3>Glow Cosmetics</h3>
+                <p>Beauty & Cosmetics Store Concept & UI Design</p>
+            </div>
+            <div class="full-page-mockup">
+                <!-- ضع اسم ملف صورة موقع جلو هنا -->
+                <img src="glow-image.jpg" alt="Glow Cosmetics Full View">
+            </div>
+        </div>
+
+        <!-- Project 4: Rashfa Coffee -->
+        <div class="project-showcase">
+            <div class="project-header-info">
+                <h3>Rashfa Coffee</h3>
+                <p>Specialty Coffee E-commerce Web Design</p>
+            </div>
+            <div class="full-page-mockup">
+                <!-- ضع اسم ملف صورة موقع رشفة هنا -->
+                <img src="rashfa-image.jpg" alt="Rashfa Coffee Full View">
+            </div>
+        </div>
+
+        <!-- Project 5: Ricrac Furniture -->
+        <div class="project-showcase">
+            <div class="project-header-info">
+                <h3>Ricrac Furniture</h3>
+                <p>Modern Furniture & Interior Store Layout</p>
+            </div>
+            <div class="full-page-mockup">
+                <!-- ضع اسم ملف صورة موقع ريكراك هنا -->
+                <img src="ricrac-image.jpg" alt="Ricrac Furniture Full View">
+            </div>
+        </div>
+
     </section>
 
     <section id="contact">
