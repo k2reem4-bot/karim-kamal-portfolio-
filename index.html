@@ -65,70 +65,60 @@
     .skills{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
     .tag{padding:8px 14px;border:1px solid var(--line);border-radius:8px;color:#c8d0db;font-size:13px;background:rgba(255,255,255,0.02)}
     
-    /* 3D Projects Section Grid */
+    /* NEW 3D Volumetric System */
     .projects{
       display:grid;
       grid-template-columns:repeat(2,1fr);
       gap:36px;
-      perspective:1200px;
+      perspective:1000px;
     }
 
     .project-card-3d{
       position:relative;
       border-radius:24px;
       border:1px solid var(--line);
-      overflow:hidden;
+      overflow:visible;
       display:flex;
       flex-direction:column;
       transform-style:preserve-3d;
-      transition:transform 0.15s ease-out, box-shadow 0.4s ease, border-color 0.4s ease;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.7);
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
+      transition:transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+      background:#0d1118;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.8);
     }
 
-    /* Dark Overlay */
+    /* Dynamic Holographic Border Light Effect */
     .project-card-3d::before {
       content: "";
       position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(7, 9, 13, 0.3) 0%, rgba(7, 9, 13, 0.92) 60%, rgba(7, 9, 13, 0.98) 100%);
-      z-index: 1;
-      transition: opacity 0.3s ease;
-    }
-
-    /* Dynamic Reflection Light Glow */
-    .project-card-3d::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: 24px;
-      background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.15), transparent 50%);
-      pointer-events: none;
-      z-index: 2;
+      inset: -1px;
+      border-radius: 25px;
+      background: radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 59, 48, 0.6), transparent 60%);
+      z-index: 0;
       opacity: 0;
       transition: opacity 0.3s ease;
+      pointer-events: none;
     }
 
     .project-card-3d:hover{
-      border-color:rgba(255,59,48,0.8);
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9), 0 0 40px rgba(255, 59, 48, 0.25);
+      border-color:rgba(255,59,48,0.9);
+      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.95), 0 0 50px rgba(255, 59, 48, 0.3);
     }
 
-    .project-card-3d:hover::after {
+    .project-card-3d:hover::before {
       opacity: 1;
     }
 
-    /* Image Preview Container with Auto-Scroll Hover */
+    /* High-Definition Image Window */
     .preview-window{
       width:100%;
-      height:290px;
+      height:310px;
       position:relative;
       overflow:hidden;
+      border-top-left-radius: 23px;
+      border-top-right-radius: 23px;
       border-bottom:1px solid var(--line);
-      background:#000;
-      z-index: 3;
+      background:#05070a;
+      z-index: 1;
       transform-style:preserve-3d;
     }
 
@@ -138,11 +128,15 @@
       display:block;
       object-fit:cover;
       object-position:top center;
-      transition:transform 3s cubic-bezier(0.25, 1, 0.5, 1);
+      /* Crisper rendering fix */
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
+      transition:transform 3.5s cubic-bezier(0.25, 1, 0.5, 1);
+      transform: translateZ(10px);
     }
 
     .project-card-3d:hover .preview-window img{
-      transform:translateY(calc(-100% + 290px)) translateZ(10px);
+      transform:translateY(calc(-100% + 310px)) translateZ(35px);
     }
 
     .pass-banner{
@@ -161,8 +155,9 @@
       display:flex;
       align-items:center;
       gap:6px;
-      transform:translateZ(35px);
-      border:1px solid rgba(255,255,255,0.2);
+      transform:translateZ(50px);
+      border:1px solid rgba(255,255,255,0.3);
+      transition: transform 0.2s ease;
     }
 
     .project-content{
@@ -172,20 +167,22 @@
       flex-grow:1;
       justify-content:space-between;
       position: relative;
-      z-index: 3;
+      z-index: 2;
+      background: #0d1118;
+      border-bottom-left-radius: 23px;
+      border-bottom-right-radius: 23px;
       transform-style:preserve-3d;
       transform:translateZ(25px);
     }
 
     .project-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
-    .project-number{color:var(--accent);font:700 14px "Space Grotesk";transform:translateZ(10px)}
-    .project-content h3{font:700 26px "Space Grotesk";letter-spacing:-.03em;margin-bottom:8px;color:#fff;transform:translateZ(15px)}
-    .project-content p{color:var(--muted);font-size:14px;line-height:1.6;margin-bottom:20px;transform:translateZ(10px)}
+    .project-number{color:var(--accent);font:700 14px "Space Grotesk";transform:translateZ(20px)}
+    .project-content h3{font:700 26px "Space Grotesk";letter-spacing:-.03em;margin-bottom:8px;color:#fff;transform:translateZ(30px)}
+    .project-content p{color:var(--muted);font-size:14px;line-height:1.6;margin-bottom:20px;transform:translateZ(20px)}
     
     .project-link{
       color:#fff;
-      background:rgba(255,59,48,0.2);
-      backdrop-filter: blur(8px);
+      background:rgba(255,59,48,0.15);
       border:1px solid rgba(255,59,48,0.5);
       padding:11px 18px;
       border-radius:10px;
@@ -197,31 +194,14 @@
       gap:6px;
       transition:.3s;
       width:100%;
-      transform:translateZ(20px);
+      transform:translateZ(40px);
     }
 
     .project-link:hover{
       background:var(--accent);
       color:#fff;
       box-shadow:0 8px 25px rgba(255,59,48,0.5);
-      transform:translateZ(35px) scale(1.02);
-    }
-
-    /* Specific Themed Background Images */
-    .bg-aura {
-      background-image: url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1200&auto=format&fit=crop');
-    }
-    .bg-glow {
-      background-image: url('https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=1200&auto=format&fit=crop');
-    }
-    .bg-crtl {
-      background-image: url('https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1200&auto=format&fit=crop');
-    }
-    .bg-rashfa {
-      background-image: url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?q=80&w=1200&auto=format&fit=crop');
-    }
-    .bg-ricrac {
-      background-image: url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1200&auto=format&fit=crop');
+      transform:translateZ(60px) scale(1.02);
     }
 
     .services{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
@@ -349,10 +329,10 @@
       </div>
       <div class="projects">
 
-        <article class="project-card-3d bg-aura">
+        <article class="project-card-3d">
           <div class="pass-banner">🔑 Password: 1</div>
           <div class="preview-window">
-            <img src="https://i.ibb.co/HvLtwVX/fullpage-snapshot-aura-uv3rgwvn-myshopify-com-2026-09-02-19-15-47.jpg" alt="Aura Store Preview">
+            <img src="https://i.ibb.co/HvLtwVX/fullpage-snapshot-aura-uv3rgwvn-myshopify-com-2026-09-02-19-15-47.jpg" alt="Aura HD Preview" loading="eager">
           </div>
           <div class="project-content">
             <div>
@@ -366,10 +346,10 @@
           </div>
         </article>
 
-        <article class="project-card-3d bg-glow">
+        <article class="project-card-3d">
           <div class="pass-banner">🔑 Password: 1</div>
           <div class="preview-window">
-            <img src="https://i.ibb.co/jZyXdgd0/fullpage-snapshot-glow-4dbf1yfb-myshopify-com-2026-09-02-19-15-30.jpg" alt="Glow Store Preview">
+            <img src="https://i.ibb.co/jZyXdgd0/fullpage-snapshot-glow-4dbf1yfb-myshopify-com-2026-09-02-19-15-30.jpg" alt="Glow HD Preview" loading="eager">
           </div>
           <div class="project-content">
             <div>
@@ -383,10 +363,10 @@
           </div>
         </article>
 
-        <article class="project-card-3d bg-crtl">
+        <article class="project-card-3d">
           <div class="pass-banner">🔑 Password: 1</div>
           <div class="preview-window">
-            <img src="https://i.ibb.co/jkX4wv58/fullpage-snapshot-mavin-9691-myshopify-com-2026-09-02-19-14-51.jpg" alt="CRTL Store Preview">
+            <img src="https://i.ibb.co/jkX4wv58/fullpage-snapshot-mavin-9691-myshopify-com-2026-09-02-19-14-51.jpg" alt="CRTL HD Preview" loading="eager">
           </div>
           <div class="project-content">
             <div>
@@ -400,132 +380,6 @@
           </div>
         </article>
 
-        <article class="project-card-3d bg-rashfa">
+        <article class="project-card-3d">
           <div class="pass-banner">🔑 Password: 1</div>
-          <div class="preview-window">
-            <img src="https://i.ibb.co/qLvrZV9d/fullpage-snapshot-rashfa-fvdp0hgx-myshopify-com-2026-09-02-19-15-10.jpg" alt="Rashfa Store Preview">
-          </div>
-          <div class="project-content">
-            <div>
-              <div class="project-header">
-                <span class="project-number">PROJECT 04</span>
-              </div>
-              <h3>Rashfa</h3>
-              <p>Specialty coffee & drinks brand setup with custom collection tabs, rich product story sections, and social proof sliders.</p>
-            </div>
-            <a href="https://rashfa-fvdp0hgx.myshopify.com" target="_blank" rel="noopener" class="project-link">Visit Live Store ↗</a>
-          </div>
-        </article>
-
-        <article class="project-card-3d bg-ricrac">
-          <div class="pass-banner">🔑 Password: 1</div>
-          <div class="preview-window">
-            <img src="https://i.ibb.co/MxKF0KYL/fullpage-snapshot-ricrac-ix4if1dz-myshopify-com-2026-09-02-19-14-09.jpg" alt="Ricrac Store Preview">
-          </div>
-          <div class="project-content">
-            <div>
-              <div class="project-header">
-                <span class="project-number">PROJECT 05</span>
-              </div>
-              <h3>Ricrac</h3>
-              <p>Vibrant furniture & home decor store with categorization by room, promotional marquees, and dynamic variant selectors.</p>
-            </div>
-            <a href="https://ricrac-ix4if1dz.myshopify.com" target="_blank" rel="noopener" class="project-link">Visit Live Store ↗</a>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <section id="services">
-    <div class="wrap">
-      <div class="section-head">
-        <div><div class="kicker">03 — Services</div><h2>What I can<br>do for you.</h2></div>
-      </div>
-      <div class="services">
-        <div class="card service">
-          <div class="icon">01</div>
-          <h3>Full Store Setup</h3>
-          <p>End-to-end Shopify store creation, configuration, payment gateway setup, and domain setup.</p>
-        </div>
-        <div class="card service">
-          <div class="icon">02</div>
-          <h3>Custom Liquid & Themes</h3>
-          <p>Customizing existing themes or building bespoke Liquid sections tailor-made for your brand.</p>
-        </div>
-        <div class="card service">
-          <div class="icon">03</div>
-          <h3>CRO & Speed Audit</h3>
-          <p>Optimizing page load speed, UX layout, and mobile funnel to boost your store conversion rates.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="wrap">
-      <div class="contact">
-        <div class="contact-wrapper">
-          <div class="kicker">04 — Contact</div>
-          <h2>Have a Shopify project in mind?</h2>
-          <p style="color:var(--muted);margin-top:15px">Let’s build a storefront that looks stunning and drives sales. Reach out directly through any of the channels below.</p>
-          
-          <div class="contact-list">
-            <a class="contact-item" href="https://wa.me/201155145452" target="_blank">
-              <span>WhatsApp / Phone</span>
-              011 5514 5452
-            </a>
-            <a class="contact-item" href="mailto:k2reem4@gmail.com">
-              <span>Email</span>
-              k2reem4@gmail.com
-            </a>
-            <a class="contact-item" href="https://linkedin.com/in/karim-kamal-2753623a0" target="_blank" rel="noopener">
-              <span>LinkedIn</span>
-              Karim Kamal
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer class="wrap">
-  <span>© 2026 Karim Kamal. All rights reserved.</span>
-  <span>Shopify Specialist</span>
-</footer>
-
-<script>
-  function toggleMenu() {
-    const links = document.getElementById('navLinks');
-    links.classList.toggle('mobile-active');
-  }
-
-  // 3D Tilt & Light Effect
-  const cards = document.querySelectorAll('.project-card-3d');
-
-  cards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      
-      const rotateX = ((y - centerY) / centerY) * -16;
-      const rotateY = ((x - centerX) / centerX) * 16;
-      
-      card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02) translateY(-8px)`;
-      card.style.setProperty('--mouse-x', `${(x / rect.width) * 100}%`);
-      card.style.setProperty('--mouse-y', `${(y / rect.height) * 100}%`);
-    });
-
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1) translateY(0px)';
-    });
-  });
-</script>
-</body>
-</html>
+          <div class="preview-
