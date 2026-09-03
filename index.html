@@ -1,463 +1,243 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Karim Kamal — Shopify Specialist Portfolio">
-  <title>Karim Kamal | Shopify Specialist</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#07090d; --panel:#0d1118; --text:#f4f7fb; --muted:#9aa5b5;
-      --line:rgba(255,255,255,.09); --accent:#ff3b30; --accent2:#ff6b63;
-      --max:1240px;
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{font-family:"DM Sans",sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
-    a{color:inherit;text-decoration:none}
-    .wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
-    
-    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(7,9,13,.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
-    .nav-inner{height:76px;display:flex;align-items:center;justify-content:space-between}
-    .logo{font-family:"Space Grotesk";font-weight:700;font-size:22px;letter-spacing:-.04em}
-    .logo span{color:var(--accent)}
-    .links{display:flex;gap:30px;color:#c2cad6;font-size:14px}
-    .links a:hover{color:var(--accent)}
-    .menu-btn{display:none;background:none;border:0;color:white;font-size:25px;cursor:pointer}
-    
-    /* Hero Section */
-    .hero{min-height:90vh;display:grid;align-items:center;padding:150px 0 80px;position:relative;overflow:hidden}
-    .hero:before{content:"";position:absolute;width:650px;height:650px;border-radius:50%;background:radial-gradient(circle,rgba(255,59,48,.15),transparent 68%);right:-180px;top:80px;pointer-events:none}
-    .eyebrow{display:inline-flex;gap:9px;align-items:center;border:1px solid var(--line);padding:8px 13px;border-radius:99px;color:#cbd4df;font-size:13px;margin-bottom:25px;background:rgba(255,255,255,0.02)}
-    .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 14px var(--accent)}
-    h1{font-family:"Space Grotesk";font-size:clamp(48px,7.5vw,90px);line-height:.96;letter-spacing:-.05em;max-width:900px}
-    h1 .red{color:var(--accent)}
-    .hero p{color:var(--muted);max-width:650px;font-size:19px;margin:30px 0 36px}
-    .actions{display:flex;gap:13px;flex-wrap:wrap}
-    .btn{padding:13px 22px;border-radius:10px;border:1px solid var(--line);font-weight:600;font-size:14px;transition:.3s;display:inline-flex;align-items:center;gap:6px}
-    .btn.primary{background:var(--accent);color:#ffffff;border-color:var(--accent);box-shadow:0 10px 25px rgba(255,59,48,0.3)}
-    .btn.primary:hover{background:var(--accent2);transform:translateY(-3px) scale(1.02)}
-    .btn:hover{transform:translateY(-2px)}
-
-    section{padding:90px 0}
-    .section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:50px}
-    .kicker{color:var(--accent);font-size:12px;text-transform:uppercase;letter-spacing:.15em;font-weight:700;margin-bottom:10px}
-    h2{font-family:"Space Grotesk";font-size:clamp(36px,5vw,54px);line-height:1;letter-spacing:-.05em}
-    .section-head p{color:var(--muted);max-width:430px}
-
-    /* General Card */
-    .card{
-      background:linear-gradient(145deg,#10151d,#0a0d12);
-      border:1px solid var(--line);
-      border-radius:20px;
-      padding:30px;
-    }
-
-    .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}
-    .about-copy{font-size:18px;color:#d2d9e3;line-height:1.65}
-    .stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    .stat{padding:22px;border:1px solid var(--line);border-radius:15px;background:#0b0f15}
-    .stat strong{font:700 31px "Space Grotesk";display:block;color:var(--accent)}
-    .stat span{font-size:13px;color:var(--muted)}
-    .skills{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
-    .tag{padding:8px 14px;border:1px solid var(--line);border-radius:8px;color:#c8d0db;font-size:13px;background:rgba(255,255,255,0.02)}
-    
-    /* Behance Style Showcase Layout */
-    .projects{
-      display:flex;
-      flex-direction:column;
-      gap:60px;
-    }
-
-    .project-case{
-      background:#0c1017;
-      border:1px solid var(--line);
-      border-radius:24px;
-      padding:40px;
-      transition:border-color 0.3s ease;
-    }
-
-    .project-case:hover{
-      border-color:rgba(255,59,48,0.4);
-    }
-
-    .project-info{
-      display:flex;
-      justify-content:space-between;
-      align-items:flex-start;
-      margin-bottom:30px;
-      flex-wrap:wrap;
-      gap:20px;
-    }
-
-    .project-title-area h3{
-      font-family:"Space Grotesk";
-      font-size:32px;
-      letter-spacing:-.03em;
-      color:#fff;
-      margin-top:6px;
-    }
-
-    .project-title-area p{
-      color:var(--muted);
-      font-size:15px;
-      max-width:600px;
-      margin-top:8px;
-    }
-
-    .project-tag-num{
-      background:rgba(255,59,48,0.1);
-      color:var(--accent);
-      border:1px solid rgba(255,59,48,0.2);
-      padding:6px 14px;
-      border-radius:30px;
-      font-size:12px;
-      font-weight:700;
-      font-family:"Space Grotesk";
-    }
-
-    /* Behance Grid Showcase: Desktop + Mobile Frames */
-    .showcase-grid{
-      display:grid;
-      grid-template-columns: 2.5fr 1fr;
-      gap:24px;
-      align-items:center;
-    }
-
-    .device-frame{
-      background:#121721;
-      border:1px solid var(--line);
-      border-radius:16px;
-      overflow:hidden;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.5);
-    }
-
-    .browser-bar{
-      height:32px;
-      background:#181f2c;
-      border-bottom:1px solid var(--line);
-      display:flex;
-      align-items:center;
-      padding:0 12px;
-      gap:6px;
-    }
-    .dot-btn{width:8px;height:8px;border-radius:50%}
-    .d-red{background:#ff5f56}
-    .d-yellow{background:#ffbd2e}
-    .d-green{background:#27c93f}
-
-    .img-container{
-      width:100%;
-      max-height:500px;
-      overflow-y:auto;
-      background:#05070a;
-    }
-
-    .img-container::-webkit-scrollbar {
-      width: 5px;
-    }
-    .img-container::-webkit-scrollbar-thumb {
-      background: #2a3447;
-      border-radius: 10px;
-    }
-
-    .img-container img{
-      width:100%;
-      height:auto;
-      display:block;
-      image-rendering: -webkit-optimize-contrast;
-    }
-
-    .mobile-frame .img-container{
-      max-height:500px;
-    }
-
-    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-    .service{background:#0c1017}
-    .service h3{font:600 20px "Space Grotesk";margin:18px 0 9px}
-    .service p{color:var(--muted);font-size:14px}
-    .icon{width:44px;height:44px;border:1px solid var(--line);border-radius:12px;display:grid;place-items:center;color:var(--accent);font-weight:700}
-    
-    /* Contact Area */
-    .contact{
-      border:1px solid var(--line);
-      border-radius:24px;
-      padding:50px;
-      background:radial-gradient(circle at 80% 20%,rgba(255,59,48,.1),transparent 40%),#0c1016;
-    }
-    .contact-wrapper{max-width:650px}
-    .contact-list{
-      display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:16px;
-      margin-top:30px;
-    }
-    .contact-item{
-      padding:20px;
-      border:1px solid var(--line);
-      border-radius:14px;
-      background:rgba(255,255,255,.02);
-      font-size:15px;
-      font-weight:600;
-      transition:.2s;
-      display:block;
-    }
-    .contact-item:hover{
-      border-color:var(--accent);
-      background:rgba(255,59,48,0.06);
-      transform:translateY(-3px);
-    }
-    .contact-item span{
-      display:block;
-      color:#687486;
-      font-size:11px;
-      text-transform:uppercase;
-      letter-spacing:.1em;
-      margin-bottom:6px;
-      font-weight:400;
-    }
-    
-    footer{border-top:1px solid var(--line);padding:25px 0;color:#667181;font-size:12px;display:flex;justify-content:space-between}
-
-    /* Responsive */
-    @media(max-width:900px){
-      .links{display:none;position:absolute;top:76px;left:0;right:0;background:var(--panel);flex-direction:column;padding:20px;border-bottom:1px solid var(--line);gap:18px}
-      .links.mobile-active{display:flex}
-      .menu-btn{display:block}
-      .about-grid{grid-template-columns:1fr}
-      .services{grid-template-columns:1fr}
-      .contact-list{grid-template-columns:1fr}
-      .showcase-grid{grid-template-columns:1fr}
-      .project-case{padding:20px}
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karim Kamal - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+        body {
+            background-color: #0b0b0b;
+            color: #f3f4f6;
+            line-height: 1.6;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: rgba(11, 11, 11, 0.9);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #1f1f1f;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #d4af37;
+            letter-spacing: 1px;
+        }
+        nav a {
+            color: #9ca3af;
+            text-decoration: none;
+            margin-left: 25px;
+            transition: 0.3s;
+            font-size: 0.95rem;
+        }
+        nav a:hover {
+            color: #d4af37;
+        }
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #0b0b0b 70%);
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+        .hero h1 span {
+            color: #d4af37;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: #9ca3af;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #d4af37;
+            color: #0b0b0b;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: #f3f4f6;
+            transform: translateY(-2px);
+        }
+        section {
+            padding: 100px 8%;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+            color: #ffffff;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: #d4af37;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        .project-card {
+            background: #141414;
+            border: 1px solid #222;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: #d4af37;
+        }
+        .project-img {
+            height: 220px;
+            background: #262626;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+            font-size: 1.1rem;
+        }
+        .project-info {
+            padding: 20px;
+        }
+        .project-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        .project-info p {
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+        .contact-box {
+            background: #141414;
+            border: 1px solid #222;
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .contact-info {
+            margin: 20px 0;
+            font-size: 1.1rem;
+            color: #d1d5db;
+        }
+        .contact-info i {
+            color: #d4af37;
+            margin-left: 10px;
+        }
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #080808;
+            color: #666;
+            font-size: 0.85rem;
+            border-top: 1px solid #161616;
+        }
+    </style>
 </head>
 <body>
-<nav>
-  <div class="wrap nav-inner">
-    <a class="logo" href="#home">KARIM KAMAL<span>.</span></a>
-    <div class="links" id="navLinks">
-      <a href="#about" onclick="toggleMenu()">About</a>
-      <a href="#projects" onclick="toggleMenu()">Projects</a>
-      <a href="#services" onclick="toggleMenu()">Services</a>
-      <a href="#contact" onclick="toggleMenu()">Contact</a>
-    </div>
-    <button class="menu-btn" aria-label="Menu" onclick="toggleMenu()">☰</button>
-  </div>
-</nav>
 
-<main id="home">
-  <section class="hero">
-    <div class="wrap">
-      <div class="eyebrow"><span class="dot"></span> Available for new Shopify projects</div>
-      <h1>Shopify stores built to <span class="red">convert.</span></h1>
-      <p>I’m Karim Kamal, a Shopify Specialist focused on building clean, fast, and high-converting ecommerce experiences that scale your business.</p>
-      <div class="actions">
-        <a class="btn primary" href="#contact">Let's work together ↗</a>
-        <a class="btn" href="#projects">View showcase</a>
-      </div>
-    </div>
-  </section>
+    <header>
+        <div class="logo">KARIM KAMAL</div>
+        <nav>
+            <a href="#about">عني</a>
+            <a href="#projects">الأعمال</a>
+            <a href="#contact">تواصل معي</a>
+        </nav>
+    </header>
 
-  <section id="about">
-    <div class="wrap">
-      <div class="section-head">
-        <div><div class="kicker">01 — About</div><h2>Shopify, but<br>business-minded.</h2></div>
-        <p>I combine Shopify Liquid development, UX design, and Conversion Rate Optimization (CRO) to build stores that look great and sell more.</p>
-      </div>
-      <div class="about-grid">
-        <div class="card">
-          <p class="about-copy">My focus isn't just making a store look visual. Every section, layout, and mobile interaction is strategically built to clarify the customer journey and maximize purchase intent.</p>
-          <div class="skills">
-            <span class="tag">Shopify 2.0</span>
-            <span class="tag">Liquid</span>
-            <span class="tag">HTML5/CSS3</span>
-            <span class="tag">JavaScript</span>
-            <span class="tag">CRO & UX</span>
-            <span class="tag">Theme Customization</span>
-            <span class="tag">App Integration</span>
-          </div>
+    <section class="hero">
+        <h1>مرحباً، أنا <span>كريم كمال</span></h1>
+        <p>مصمم ومبدع رقمي، أحول الأفكار المعقدة إلى تجارب بصرية واجهات مستخدم استثنائية تنافس المعايير العالمية.</p>
+        <a href="#projects" class="btn">استعرض أعمالي</a>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">نبذة عني</h2>
+        <div style="max-width: 700px; margin: 0 auto; text-align: center; color: #9ca3af; font-size: 1.1rem;">
+            أهلاً بك! أنا كريم كمال، أهتم بتصميم وتطوير تجارب مميزة وهوية بصرية تلفت الانتباه وتلبي احتياجات المستخدمين بأعلى جودة واحترافية.
         </div>
-        <div class="stats">
-          <div class="stat"><strong>Shopify</strong><span>Specialist</span></div>
-          <div class="stat"><strong>CRO</strong><span>Optimization Focus</span></div>
-          <div class="stat"><strong>100%</strong><span>Mobile First</span></div>
-          <div class="stat"><strong>Fast</strong><span>Loading Speed</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Behance Style Showcase Section -->
-  <section id="projects">
-    <div class="wrap">
-      <div class="section-head">
-        <div><div class="kicker">02 — Case Studies</div><h2>Projects showcase.</h2></div>
-        <p>A detailed look into high-converting storefronts, featuring desktop experience and mobile responsive layouts.</p>
-      </div>
-      
-      <div class="projects">
-
-        <!-- Project 1 -->
-        <div class="project-case">
-          <div class="project-info">
-            <div class="project-title-area">
-              <span class="project-tag-num">CASE 01</span>
-              <h3>Aura — Modest Fashion Store</h3>
-              <p>Elegant modest fashion & abaya storefront featuring sleek collection layouts, custom banner sections, and structured product grids.</p>
+    <section id="projects">
+        <h2 class="section-title">معرض الأعمال</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-img">[صورة موقع Ecart - Scented Story]</div>
+                <div class="project-info">
+                    <h3>Ecart E-commerce Design</h3>
+                    <p>تصميم واجهة متجر إلكتروني فاخر مستوحى من المتاجر العالمية.</p>
+                </div>
             </div>
-          </div>
-          <div class="showcase-grid">
-            <!-- Desktop Mockup -->
-            <div class="device-frame desktop-frame">
-              <div class="browser-bar">
-                <span class="dot-btn d-red"></span><span class="dot-btn d-yellow"></span><span class="dot-btn d-green"></span>
-              </div>
-              <div class="img-container">
-                <img src="aura-desktop.jpg" alt="Aura Desktop View">
-              </div>
+            <div class="project-card">
+                <div class="project-img">[صورة مشروع قادم]</div>
+                <div class="project-info">
+                    <h3>Project Two</h3>
+                    <p>تصميم واجهات مستخدم تفاعلية وعصرية متكاملة.</p>
+                </div>
             </div>
-            <!-- Mobile Mockup -->
-            <div class="device-frame mobile-frame">
-              <div class="browser-bar">
-                <span class="dot-btn d-red"></span><span class="dot-btn d-yellow"></span><span class="dot-btn d-green"></span>
-              </div>
-              <div class="img-container">
-                <img src="aura-mobile.jpg" alt="Aura Mobile View">
-              </div>
+            <div class="project-card">
+                <div class="project-img">[صورة مشروع قادم]</div>
+                <div class="project-info">
+                    <h3>Project Three</h3>
+                    <p>هوية بصرية وتصميم تجربة مستخدم لمتجر رقمي.</p>
+                </div>
             </div>
-          </div>
         </div>
+    </section>
 
-        <!-- Project 2 -->
-        <div class="project-case">
-          <div class="project-info">
-            <div class="project-title-area">
-              <span class="project-tag-num">CASE 02</span>
-              <h3>Glow — Skincare Store</h3>
-              <p>Beauty & skincare Shopify store built with interactive featured product showcases, custom swatch selectors, and store locator UI.</p>
+    <section id="contact">
+        <h2 class="section-title">تواصل معي</h2>
+        <div class="contact-box">
+            <p style="color: #9ca3af; margin-bottom: 20px;">هل لديك مشروع تريد تنفيذه؟ تواصل معي مباشرة وسنبدأ العمل فوراً.</p>
+            <div class="contact-info">
+                <i class="fa-solid fa-envelope"></i> k2reem4@gmail.com
             </div>
-          </div>
-          <div class="showcase-grid">
-            <div class="device-frame desktop-frame">
-              <div class="browser-bar">
-                <span class="dot-btn d-red"></span><span class="dot-btn d-yellow"></span><span class="dot-btn d-green"></span>
-              </div>
-              <div class="img-container">
-                <img src="glow-desktop.jpg" alt="Glow Desktop View">
-              </div>
+            <div class="contact-info">
+                <i class="fa-solid fa-phone"></i> 01155145452
             </div>
-            <div class="device-frame mobile-frame">
-              <div class="browser-bar">
-                <span class="dot-btn d-red"></span><span class="dot-btn d-yellow"></span><span class="dot-btn d-green"></span>
-              </div>
-              <div class="img-container">
-                <img src="glow-mobile.jpg" alt="Glow Mobile View">
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 3 -->
-        <div class="project-case">
-          <div class="project-info">
-            <div class="project-title-area">
-              <span class="project-tag-num">CASE 03</span>
-              <h3>CRTL — Apparel Brand</h3>
-              <p>Modern streetwear & apparel brand storefront with high-impact visual lookbooks, dark mode aesthetic, and fast mobile navigation.</p>
-            </div>
-          </div>
-          <div class="showcase-grid">
-            <div class="device-frame desktop-frame">
-              <div class="browser-bar">
-                <span class="dot-btn d-red"></span><span class="dot-btn d-yellow"></span><span class="dot-btn d-green"></span>
-              </div>
-              <div class="img-container">
-                <img src="crtl-desktop.jpg" alt="CRTL Desktop View">
-              </div>
-            </div>
-            <div class="device-frame mobile-frame">
-              <div class="browser-bar">
-                <span class="dot-btn d-red"></span><span class="dot-btn d-yellow"></span><span class="dot-btn d-green"></span>
-              </div>
-              <div class="img-container">
-                <img src="crtl-mobile.jpg" alt="CRTL Mobile View">
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <section id="services">
-    <div class="wrap">
-      <div class="section-head">
-        <div><div class="kicker">03 — Services</div><h2>What I can<br>do for you.</h2></div>
-      </div>
-      <div class="services">
-        <div class="card service">
-          <div class="icon">01</div>
-          <h3>Full Store Setup</h3>
-          <p>End-to-end Shopify store creation, configuration, payment gateway setup, and domain setup.</p>
-        </div>
-        <div class="card service">
-          <div class="icon">02</div>
-          <h3>Custom Liquid & Themes</h3>
-          <p>Customizing existing themes or building bespoke Liquid sections tailor-made for your brand.</p>
-        </div>
-        <div class="card service">
-          <div class="icon">03</div>
-          <h3>CRO & Speed Audit</h3>
-          <p>Optimizing page load speed, UX layout, and mobile funnel to boost your store conversion rates.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact">
-    <div class="wrap">
-      <div class="contact">
-        <div class="contact-wrapper">
-          <div class="kicker">04 — Contact</div>
-          <h2>Have a Shopify project in mind?</h2>
-          <p style="color:var(--muted);margin-top:15px">Let’s build a storefront that looks stunning and drives sales. Reach out directly through any of the channels below.</p>
-          
-          <div class="contact-list">
-            <a class="contact-item" href="https://wa.me/201155145452" target="_blank">
-              <span>WhatsApp / Phone</span>
-              011 5514 5452
+            <a href="https://wa.me/201155145452" target="_blank" class="btn" style="margin-top: 20px;">
+                <i class="fa-brands fa-whatsapp"></i> راسلني عبر واتساب
             </a>
-            <a class="contact-item" href="mailto:k2reem4@gmail.com">
-              <span>Email</span>
-              k2reem4@gmail.com
-            </a>
-            <a class="contact-item" href="https://linkedin.com/in/karim-kamal-2753623a0" target="_blank" rel="noopener">
-              <span>LinkedIn</span>
-              Karim Kamal
-            </a>
-          </div>
         </div>
-      </div>
-    </div>
-  </section>
-</main>
+    </section>
 
-<footer class="wrap">
-  <span>© 2026 Karim Kamal. All rights reserved.</span>
-  <span>Shopify Specialist</span>
-</footer>
+    <footer>
+        <p>جميع الحقوق محفوظة © 2026 - Karim Kamal</p>
+    </footer>
 
-<script>
-  function toggleMenu() {
-    const links = document.getElementById('navLinks');
-    links.classList.toggle('mobile-active');
-  }
-</script>
 </body>
 </html>
