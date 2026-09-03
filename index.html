@@ -65,69 +65,68 @@
     .skills{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
     .tag{padding:8px 14px;border:1px solid var(--line);border-radius:8px;color:#c8d0db;font-size:13px;background:rgba(255,255,255,0.02)}
     
-    /* Advanced 3D Projects Grid */
+    /* Dynamic Interactive 3D Projects Grid */
     .projects{
       display:grid;
       grid-template-columns:repeat(2,1fr);
-      gap:32px;
-      perspective:1200px;
+      gap:36px;
+      perspective:1500px;
     }
 
     .project-card-3d{
       position:relative;
-      border-radius:22px;
+      border-radius:24px;
       border:1px solid var(--line);
-      background:#0d1118;
+      background:rgba(13, 17, 24, 0.85);
+      backdrop-filter: blur(12px);
       overflow:hidden;
       display:flex;
       flex-direction:column;
       transform-style:preserve-3d;
-      transition:transform 0.15s ease-out, box-shadow 0.3s ease, border-color 0.3s ease;
-      box-shadow:0 15px 35px rgba(0,0,0,0.5);
+      transition:transform 0.1s ease-out, box-shadow 0.3s ease, border-color 0.3s ease;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
       will-change: transform;
     }
 
-    .project-card-3d::after {
+    /* Dynamic Light Beam Overlay */
+    .project-card-3d::before {
       content: "";
       position: absolute;
       inset: 0;
-      border-radius: 22px;
-      background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,255,255,0.12) 0%, transparent 60%);
+      border-radius: 24px;
+      background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 59, 48, 0.15), transparent 40%);
       pointer-events: none;
-      z-index: 5;
+      z-index: 6;
       opacity: 0;
       transition: opacity 0.3s ease;
     }
 
     .project-card-3d:hover{
-      border-color:rgba(255,59,48,0.6);
-      box-shadow:0 30px 60px rgba(0,0,0,0.8), 0 0 35px rgba(255,59,48,0.25);
+      border-color:rgba(255,59,48,0.7);
+      box-shadow: 0 35px 70px rgba(0, 0, 0, 0.9), 0 0 45px rgba(255, 59, 48, 0.3);
     }
 
-    .project-card-3d:hover::after {
+    .project-card-3d:hover::before {
       opacity: 1;
     }
 
+    /* Embedded Live Homepage Preview */
     .preview-window{
       width:100%;
-      height:280px;
+      height:320px;
       position:relative;
       overflow:hidden;
       border-bottom:1px solid var(--line);
-      background:#000;
+      background:#05070a;
       transform-style:preserve-3d;
     }
 
-    .preview-window img{
+    .preview-window iframe{
       width:100%;
       height:100%;
-      object-fit:cover;
-      object-position:top center;
+      border:0;
+      pointer-events:auto;
       transition:transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-    }
-
-    .project-card-3d:hover .preview-window img{
-      transform:scale(1.08) translateZ(15px);
     }
 
     .pass-banner{
@@ -146,7 +145,7 @@
       display:flex;
       align-items:center;
       gap:6px;
-      transform:translateZ(35px);
+      transform:translateZ(40px);
       border:1px solid rgba(255,255,255,0.2);
     }
 
@@ -157,13 +156,13 @@
       flex-grow:1;
       justify-content:space-between;
       transform-style:preserve-3d;
-      transform:translateZ(25px);
+      transform:translateZ(30px);
     }
 
     .project-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
-    .project-number{color:var(--accent);font:700 14px "Space Grotesk";transform:translateZ(10px)}
-    .project-content h3{font:700 26px "Space Grotesk";letter-spacing:-.03em;margin-bottom:8px;color:#fff;transform:translateZ(15px)}
-    .project-content p{color:var(--muted);font-size:14px;line-height:1.6;margin-bottom:20px;transform:translateZ(10px)}
+    .project-number{color:var(--accent);font:700 14px "Space Grotesk";transform:translateZ(15px)}
+    .project-content h3{font:700 26px "Space Grotesk";letter-spacing:-.03em;margin-bottom:8px;color:#fff;transform:translateZ(20px)}
+    .project-content p{color:var(--muted);font-size:14px;line-height:1.6;margin-bottom:20px;transform:translateZ(15px)}
     
     .project-link{
       color:#fff;
@@ -179,14 +178,14 @@
       gap:6px;
       transition:.3s;
       width:100%;
-      transform:translateZ(20px);
+      transform:translateZ(25px);
     }
 
     .project-link:hover{
       background:var(--accent);
       color:#fff;
       box-shadow:0 8px 25px rgba(255,59,48,0.5);
-      transform:translateZ(30px) scale(1.02);
+      transform:translateZ(40px) scale(1.02);
     }
 
     .services{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
@@ -253,7 +252,7 @@
 <body>
 <nav>
   <div class="wrap nav-inner">
-    <a class="logo" href="#home">KARIM<span>.</span></a>
+    <a class="logo" href="#home">KARIM KAMAL<span>.</span></a>
     <div class="links" id="navLinks">
       <a href="#about" onclick="toggleMenu()">About</a>
       <a href="#projects" onclick="toggleMenu()">Projects</a>
@@ -317,7 +316,7 @@
         <article class="project-card-3d">
           <div class="pass-banner">🔑 Password: 1</div>
           <div class="preview-window">
-            <img src="https://i.ibb.co/HvLtwVX/fullpage-snapshot-aura-uv3rgwvn-myshopify-com-2026-09-02-19-15-47.jpg" alt="Aura Store Preview">
+            <iframe src="https://aura-uv3rgwvn.myshopify.com" title="Aura Live Preview" loading="lazy"></iframe>
           </div>
           <div class="project-content">
             <div>
@@ -334,7 +333,7 @@
         <article class="project-card-3d">
           <div class="pass-banner">🔑 Password: 1</div>
           <div class="preview-window">
-            <img src="https://i.ibb.co/jZyXdgd0/fullpage-snapshot-glow-4dbf1yfb-myshopify-com-2026-09-02-19-15-30.jpg" alt="Glow Store Preview">
+            <iframe src="https://glow-4dbf1yfb.myshopify.com" title="Glow Live Preview" loading="lazy"></iframe>
           </div>
           <div class="project-content">
             <div>
@@ -351,7 +350,7 @@
         <article class="project-card-3d">
           <div class="pass-banner">🔑 Password: 1</div>
           <div class="preview-window">
-            <img src="https://i.ibb.co/jkX4wv58/fullpage-snapshot-mavin-9691-myshopify-com-2026-09-02-19-14-51.jpg" alt="CRTL Store Preview">
+            <iframe src="https://mavin-9691.myshopify.com" title="CRTL Live Preview" loading="lazy"></iframe>
           </div>
           <div class="project-content">
             <div>
@@ -368,7 +367,7 @@
         <article class="project-card-3d">
           <div class="pass-banner">🔑 Password: 1</div>
           <div class="preview-window">
-            <img src="https://i.ibb.co/qLvrZV9d/fullpage-snapshot-rashfa-fvdp0hgx-myshopify-com-2026-09-02-19-15-10.jpg" alt="Rashfa Store Preview">
+            <iframe src="https://rashfa-fvdp0hgx.myshopify.com" title="Rashfa Live Preview" loading="lazy"></iframe>
           </div>
           <div class="project-content">
             <div>
@@ -385,7 +384,7 @@
         <article class="project-card-3d">
           <div class="pass-banner">🔑 Password: 1</div>
           <div class="preview-window">
-            <img src="https://i.ibb.co/MxKF0KYL/fullpage-snapshot-ricrac-ix4if1dz-myshopify-com-2026-09-02-19-14-09.jpg" alt="Ricrac Store Preview">
+            <iframe src="https://ricrac-ix4if1dz.myshopify.com" title="Ricrac Live Preview" loading="lazy"></iframe>
           </div>
           <div class="project-content">
             <div>
@@ -467,6 +466,7 @@
     links.classList.toggle('mobile-active');
   }
 
+  // Enhanced Interactive 3D Physics Engine
   const cards = document.querySelectorAll('.project-card-3d');
 
   cards.forEach(card => {
@@ -478,16 +478,17 @@
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
       
-      const rotateX = ((y - centerY) / centerY) * -14;
-      const rotateY = ((x - centerX) / centerX) * 14;
+      // Dynamic Perspective Angle & Tilt Intensity
+      const rotateX = ((y - centerY) / centerY) * -18;
+      const rotateY = ((x - centerX) / centerX) * 18;
       
-      card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+      card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(12px) translateY(-10px)`;
       card.style.setProperty('--mouse-x', `${(x / rect.width) * 100}%`);
       card.style.setProperty('--mouse-y', `${(y / rect.height) * 100}%`);
     });
 
     card.addEventListener('mouseleave', () => {
-      card.style.transform = 'rotateX(0deg) rotateY(0deg) translateY(0px)';
+      card.style.transform = 'rotateX(0deg) rotateY(0deg) translateZ(0px) translateY(0px)';
     });
   });
 </script>
