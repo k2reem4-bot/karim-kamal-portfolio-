@@ -65,7 +65,7 @@
     .skills{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
     .tag{padding:8px 14px;border:1px solid var(--line);border-radius:8px;color:#c8d0db;font-size:13px;background:rgba(255,255,255,0.02)}
     
-    /* Advanced 3D Interactive Card Grid */
+    /* 3D Projects Section Grid */
     .projects{
       display:grid;
       grid-template-columns:repeat(2,1fr);
@@ -88,17 +88,17 @@
       background-repeat: no-repeat;
     }
 
-    /* Dark Overlay for Reading Contrast */
+    /* Dark Overlay */
     .project-card-3d::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(7, 9, 13, 0.4) 0%, rgba(7, 9, 13, 0.92) 65%, rgba(7, 9, 13, 0.98) 100%);
+      background: linear-gradient(180deg, rgba(7, 9, 13, 0.3) 0%, rgba(7, 9, 13, 0.92) 60%, rgba(7, 9, 13, 0.98) 100%);
       z-index: 1;
       transition: opacity 0.3s ease;
     }
 
-    /* Glassmorphic Light Reflection Effect */
+    /* Dynamic Reflection Light Glow */
     .project-card-3d::after {
       content: "";
       position: absolute;
@@ -120,24 +120,29 @@
       opacity: 1;
     }
 
-    /* Web Preview Window */
+    /* Image Preview Container with Auto-Scroll Hover */
     .preview-window{
       width:100%;
-      height:280px;
+      height:290px;
       position:relative;
       overflow:hidden;
       border-bottom:1px solid var(--line);
-      background:rgba(0,0,0,0.3);
+      background:#000;
       z-index: 3;
       transform-style:preserve-3d;
     }
 
-    .preview-window iframe{
+    .preview-window img{
       width:100%;
-      height:100%;
-      border:0;
-      pointer-events:auto;
-      transition:transform 0.4s ease;
+      height:auto;
+      display:block;
+      object-fit:cover;
+      object-position:top center;
+      transition:transform 3s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .project-card-3d:hover .preview-window img{
+      transform:translateY(calc(-100% + 290px)) translateZ(10px);
     }
 
     .pass-banner{
@@ -202,7 +207,7 @@
       transform:translateZ(35px) scale(1.02);
     }
 
-    /* Specific Background Images per Niche */
+    /* Specific Themed Background Images */
     .bg-aura {
       background-image: url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1200&auto=format&fit=crop');
     }
@@ -347,7 +352,7 @@
         <article class="project-card-3d bg-aura">
           <div class="pass-banner">🔑 Password: 1</div>
           <div class="preview-window">
-            <iframe src="https://aura-uv3rgwvn.myshopify.com" title="Aura Live Preview" loading="lazy"></iframe>
+            <img src="https://i.ibb.co/HvLtwVX/fullpage-snapshot-aura-uv3rgwvn-myshopify-com-2026-09-02-19-15-47.jpg" alt="Aura Store Preview">
           </div>
           <div class="project-content">
             <div>
@@ -364,7 +369,7 @@
         <article class="project-card-3d bg-glow">
           <div class="pass-banner">🔑 Password: 1</div>
           <div class="preview-window">
-            <iframe src="https://glow-4dbf1yfb.myshopify.com" title="Glow Live Preview" loading="lazy"></iframe>
+            <img src="https://i.ibb.co/jZyXdgd0/fullpage-snapshot-glow-4dbf1yfb-myshopify-com-2026-09-02-19-15-30.jpg" alt="Glow Store Preview">
           </div>
           <div class="project-content">
             <div>
@@ -381,7 +386,7 @@
         <article class="project-card-3d bg-crtl">
           <div class="pass-banner">🔑 Password: 1</div>
           <div class="preview-window">
-            <iframe src="https://mavin-9691.myshopify.com" title="CRTL Live Preview" loading="lazy"></iframe>
+            <img src="https://i.ibb.co/jkX4wv58/fullpage-snapshot-mavin-9691-myshopify-com-2026-09-02-19-14-51.jpg" alt="CRTL Store Preview">
           </div>
           <div class="project-content">
             <div>
@@ -398,7 +403,7 @@
         <article class="project-card-3d bg-rashfa">
           <div class="pass-banner">🔑 Password: 1</div>
           <div class="preview-window">
-            <iframe src="https://rashfa-fvdp0hgx.myshopify.com" title="Rashfa Live Preview" loading="lazy"></iframe>
+            <img src="https://i.ibb.co/qLvrZV9d/fullpage-snapshot-rashfa-fvdp0hgx-myshopify-com-2026-09-02-19-15-10.jpg" alt="Rashfa Store Preview">
           </div>
           <div class="project-content">
             <div>
@@ -415,7 +420,7 @@
         <article class="project-card-3d bg-ricrac">
           <div class="pass-banner">🔑 Password: 1</div>
           <div class="preview-window">
-            <iframe src="https://ricrac-ix4if1dz.myshopify.com" title="Ricrac Live Preview" loading="lazy"></iframe>
+            <img src="https://i.ibb.co/MxKF0KYL/fullpage-snapshot-ricrac-ix4if1dz-myshopify-com-2026-09-02-19-14-09.jpg" alt="Ricrac Store Preview">
           </div>
           <div class="project-content">
             <div>
@@ -459,4 +464,68 @@
   </section>
 
   <section id="contact">
-    <div class="wrap
+    <div class="wrap">
+      <div class="contact">
+        <div class="contact-wrapper">
+          <div class="kicker">04 — Contact</div>
+          <h2>Have a Shopify project in mind?</h2>
+          <p style="color:var(--muted);margin-top:15px">Let’s build a storefront that looks stunning and drives sales. Reach out directly through any of the channels below.</p>
+          
+          <div class="contact-list">
+            <a class="contact-item" href="https://wa.me/201155145452" target="_blank">
+              <span>WhatsApp / Phone</span>
+              011 5514 5452
+            </a>
+            <a class="contact-item" href="mailto:k2reem4@gmail.com">
+              <span>Email</span>
+              k2reem4@gmail.com
+            </a>
+            <a class="contact-item" href="https://linkedin.com/in/karim-kamal-2753623a0" target="_blank" rel="noopener">
+              <span>LinkedIn</span>
+              Karim Kamal
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <span>© 2026 Karim Kamal. All rights reserved.</span>
+  <span>Shopify Specialist</span>
+</footer>
+
+<script>
+  function toggleMenu() {
+    const links = document.getElementById('navLinks');
+    links.classList.toggle('mobile-active');
+  }
+
+  // 3D Tilt & Light Effect
+  const cards = document.querySelectorAll('.project-card-3d');
+
+  cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      
+      const rotateX = ((y - centerY) / centerY) * -16;
+      const rotateY = ((x - centerX) / centerX) * 16;
+      
+      card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02) translateY(-8px)`;
+      card.style.setProperty('--mouse-x', `${(x / rect.width) * 100}%`);
+      card.style.setProperty('--mouse-y', `${(y / rect.height) * 100}%`);
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1) translateY(0px)';
+    });
+  });
+</script>
+</body>
+</html>
